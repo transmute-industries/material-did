@@ -17,12 +17,12 @@ npm run build
 
 ## Core
 
-See [./packages/core][./packages/core]
+See [./packages/core](./packages/core)
 
 This module contains all components and stories.
 
 ## Demo
 
-See [./packages/demo][./packages/demo]
+See [./packages/demo](./packages/demo)
 
 This module contains a demo create react app for sanity testing.
