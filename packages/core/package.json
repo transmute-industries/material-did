@@ -15,17 +15,18 @@
     "build": "tsdx build",
     "test": "tsdx test --passWithNoTests",
     "test:ci": "tsdx test --passWithNoTests --ci --coverage --maxWorkers=2",
-    "lint": "tsdx lint src test",
+    "lint": "tsdx lint --fix src test",
     "prepare": "tsdx build",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "storybook:build": "build-storybook && cp ./.storybook/CNAME ./storybook-static/CNAME",
+    "storybook:deploy": "gh-pages deploy -d ./storybook-static"
   },
   "peerDependencies": {
     "react": ">=16"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "tsdx lint"
+      "pre-commit": "npm run lint"
     }
   },
   "prettier": {
@@ -48,6 +49,7 @@
     "@types/react": "^16.9.34",
     "@types/react-dom": "^16.9.7",
     "babel-loader": "^8.1.0",
+    "gh-pages": "^2.2.0",
     "husky": "^4.2.5",
     "react": "^16.13.1",
     "react-docgen-typescript-loader": "^3.7.2",
