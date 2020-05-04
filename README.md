@@ -1,6 +1,10 @@
 # Material DID
 
-Material UI & React Components for Progressive Web Applications focused on Decentralized Identifiers.
+[https://material-did.com](https://material-did.com)
+
+> Material UI for Decentralized Identifiers.
+
+![CI](https://github.com/transmute-industries/material-did/workflows/CI/badge.svg)
 
 This is a mono repo using [Lerna](https://github.com/lerna/lerna)
 
@@ -10,3 +14,15 @@ npm run lint
 npm run test
 npm run build
 ```
+
+## Core
+
+See [./packages/core][./packages/core]
+
+This module contains all components and stories.
+
+## Demo
+
+See [./packages/demo][./packages/demo]
+
+This module contains a demo create react app for sanity testing.
