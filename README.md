@@ -8,6 +8,8 @@
 
 This is a mono repo using [Lerna](https://github.com/lerna/lerna)
 
+`Beware that lerna bootstrap causes: Invalid Hook Call Warning`... You must publish `core` to avoid this for now.
+
 ```
 npm i
 npm run lint
