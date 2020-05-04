@@ -20,7 +20,7 @@
     "build": "tsdx build",
     "test": "tsdx test --passWithNoTests",
     "test:ci": "tsdx test --passWithNoTests --ci --coverage --maxWorkers=2",
-    "lint": "tsdx lint --fix src",
+    "lint": "tsdx lint src --fix",
     "prepare": "tsdx build",
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook && cp ./.storybook/CNAME ./storybook-static/CNAME",
