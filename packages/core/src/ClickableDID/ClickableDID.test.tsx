@@ -1,11 +1,11 @@
 import React from 'react';
 import * as ReactDOM from 'react-dom';
-import { Default as Thing } from '../stories/Thing.stories';
+import { Examples as ClickableDIDStories } from './ClickableDID.stories';
 
-describe('Thing', () => {
+describe('ClickableDID', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<Thing />, div);
+    ReactDOM.render(<ClickableDIDStories />, div);
     ReactDOM.unmountComponentAtNode(div);
   });
 });
