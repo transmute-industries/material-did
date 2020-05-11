@@ -15,6 +15,7 @@ export const ClickableDID: FC<IClickableDIDProps> = ({ did, onClick }) => {
       size="medium"
       variant="outlined"
       icon={<Fingerprint />}
+      style={{ maxWidth: '256px' }}
       label={did}
       onClick={onClick}
     />
