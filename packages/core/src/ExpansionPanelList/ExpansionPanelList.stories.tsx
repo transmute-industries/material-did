@@ -2,7 +2,8 @@ import React from 'react';
 import { ExpansionPanelList, IExpansionPanelList } from '.';
 
 export default {
-  title: 'Expansion Panel List',
+  title: 'Common|ExpansionPanelList',
+  component: ExpansionPanelList,
 };
 
 const panels = [
@@ -25,7 +26,7 @@ const panels = [
 
 // By passing optional props to this story, you can control the props of the component when
 // you consume the story in a test.
-export const Example = (props?: Partial<IExpansionPanelList>) => (
+export const ExpansionPanels = (props?: Partial<IExpansionPanelList>) => (
   <div>
     <ExpansionPanelList panels={panels} {...props} />
   </div>

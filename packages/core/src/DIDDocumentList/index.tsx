@@ -1,1 +1,1 @@
-export * from './DIDDocumentList'
+export * from './DIDDocumentList';

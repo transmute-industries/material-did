@@ -2,7 +2,7 @@ import React from 'react';
 import { VerificationCredential, IVerificationCredential } from '.';
 
 export default {
-  title: 'Verifiable Credential',
+  title: 'Components|Verifiable Credential',
 };
 
 const verifiableCredential = {

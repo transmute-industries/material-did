@@ -1,6 +1,6 @@
 import React, { FC, HTMLAttributes } from 'react';
-import Fingerprint from '@material-ui/icons/Fingerprint';
 import Chip from '@material-ui/core/Chip';
+import Identicon from 'react-identicons';
 
 export interface IClickableDIDProps extends HTMLAttributes<HTMLDivElement> {
   did: string;
@@ -14,7 +14,11 @@ export const ClickableDID: FC<IClickableDIDProps> = ({ did, onClick }) => {
     <Chip
       size="medium"
       variant="outlined"
-      icon={<Fingerprint />}
+      icon={
+        <span style={{ height: '32px', marginLeft: '14px', marginTop: '0px' }}>
+          <Identicon size={32} count={5} string={did} />
+        </span>
+      }
       style={{ maxWidth: '256px' }}
       label={did}
       onClick={onClick}

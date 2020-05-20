@@ -4,7 +4,7 @@ import { WebKeystore } from '.';
 import didWallet from '@transmute/did-wallet';
 
 export default {
-  title: 'Web Keystore',
+  title: 'Components|Web Keystore',
 };
 
 const image =

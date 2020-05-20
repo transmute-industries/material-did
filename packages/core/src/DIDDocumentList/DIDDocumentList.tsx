@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from 'react';
 import MaterialTable from 'material-table';
 
-import { JSONEditor } from '../JSONEditor';
+import { DIDDocumentPreview } from '../DIDDocumentPreview';
 import Link from '@material-ui/core/Link';
 import { ClickableDID } from '../ClickableDID';
 
@@ -47,10 +47,10 @@ export const DIDDocumentList = ({ list }: any) => {
           emptyDataSourceMessage: 'No decentralized identifiers to display.',
         },
       }}
-      detailPanel={rowData => {
+      detailPanel={(rowData: any) => {
         let withoutTableData: any = { ...rowData };
         delete withoutTableData.tableData;
-        return <JSONEditor value={JSON.stringify(withoutTableData, null, 2)} />;
+        return <DIDDocumentPreview didDocument={withoutTableData} />;
       }}
     />
   );
