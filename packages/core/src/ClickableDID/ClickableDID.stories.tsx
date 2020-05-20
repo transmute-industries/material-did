@@ -1,19 +1,27 @@
 import React from 'react';
+import Link from '@material-ui/core/Link';
+import Typography from '@material-ui/core/Typography';
 import { ClickableDID, IClickableDIDProps } from '.';
 
 export default {
-  title: 'Clickable DID',
+  title: 'DID',
 };
 
 const did = 'did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg';
 const handleClick = () => {
-  console.log('clicked');
+  window.open(`https://uniresolver.io/#${did}`);
 };
 
-// By passing optional props to this story, you can control the props of the component when
-// you consume the story in a test.
-export const Element = (props?: Partial<IClickableDIDProps>) => (
+export const Fancy = (props?: Partial<IClickableDIDProps>) => (
   <div>
     <ClickableDID did={did} onClick={handleClick} {...props} />
   </div>
+);
+
+export const Simple = () => (
+  <Typography>
+    <Link href={`https://uniresolver.io/#${did}`} target="__blank">
+      {did}
+    </Link>
+  </Typography>
 );

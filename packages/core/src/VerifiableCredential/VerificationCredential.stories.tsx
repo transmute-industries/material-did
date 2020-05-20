@@ -1,11 +1,8 @@
 import React from 'react';
-import {
-  GenericVerificationCredential,
-  IGenericVerificationCredential,
-} from '.';
+import { VerificationCredential, IVerificationCredential } from '.';
 
 export default {
-  title: 'Generic Verifiable Credential',
+  title: 'Verifiable Credential',
 };
 
 const verifiableCredential = {
@@ -49,11 +46,9 @@ const verifiableCredential = {
 
 // By passing optional props to this story, you can control the props of the component when
 // you consume the story in a test.
-export const CovidCredential = (
-  props?: Partial<IGenericVerificationCredential>
-) => (
+export const CovidCredential = (props?: Partial<IVerificationCredential>) => (
   <div>
-    <GenericVerificationCredential
+    <VerificationCredential
       verifiableCredential={verifiableCredential}
       {...props}
     />

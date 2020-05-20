@@ -2,7 +2,7 @@
   "name": "@transmute/material-did-core",
   "author": "Orie Steele",
   "module": "dist/core.esm.js",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -24,7 +24,8 @@
     "prepare": "tsdx build",
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook && cp ./.storybook/CNAME ./storybook-static/CNAME",
-    "storybook:deploy": "gh-pages deploy -d ./storybook-static"
+    "storybook:deploy": "gh-pages deploy -d ./storybook-static",
+    "build:all": "npm run build && npm run storybook:build"
   },
   "peerDependencies": {
     "react": ">=16",

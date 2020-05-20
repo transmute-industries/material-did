@@ -48,12 +48,12 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export interface IGenericVerificationCredential
+export interface IVerificationCredential
   extends HTMLAttributes<HTMLDivElement> {
   verifiableCredential: any;
 }
 
-export const GenericVerificationCredential: FC<IGenericVerificationCredential> = ({
+export const VerificationCredential: FC<IVerificationCredential> = ({
   verifiableCredential,
 }) => {
   const classes = useStyles();

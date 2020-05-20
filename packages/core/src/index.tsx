@@ -1,4 +1,5 @@
 export * from './ClickableDID';
 export * from './JSONEditor';
-export * from './GenericVerifiableCredential';
+export * from './VerifiableCredential';
+export * from './DIDDocumentList';
 export * from './WebKeystore';

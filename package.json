@@ -6,13 +6,11 @@
     "lint": "lerna run lint --stream",
     "test": "lerna run test --stream",
     "test:ci": "lerna run test:ci --stream",
-    "build": "lerna run test --stream"
+    "build": "lerna run test --stream",
+    "shove": "git add -A; git commit -m 'chore(ci): test'; git push origin master"
   },
   "devDependencies": {
     "lerna": "^3.20.2"
   },
-  "dependencies": {
-    "brace": "^0.11.1",
-    "react-ace": "^6.3.2"
-  }
+  "dependencies": {}
 }
