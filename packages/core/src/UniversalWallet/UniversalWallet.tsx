@@ -22,8 +22,8 @@ import {
   Create,
 } from '@material-ui/icons';
 
-import { KeystoreMenu } from './KeystoreMenu';
-import { SearchKeystoreDialog } from './SearchKeystoreDialog';
+import { InterfaceMenu } from './InterfaceMenu';
+import { SearchDialog } from './SearchDialog';
 
 import { getKeystoreContext, download } from './help';
 
@@ -82,7 +82,7 @@ function keyStoreStatusColor(status: string) {
   }
 }
 
-export interface IWebKeystore extends HTMLAttributes<HTMLDivElement> {
+export interface IUniversalWallet extends HTMLAttributes<HTMLDivElement> {
   keystore: any;
   image: string;
   importKeystore: any;
@@ -91,7 +91,7 @@ export interface IWebKeystore extends HTMLAttributes<HTMLDivElement> {
   toggleLockStatus: any;
   deleteKeystore: any;
 }
-export const WebKeystore: FC<IWebKeystore> = ({
+export const UniversalWallet: FC<IUniversalWallet> = ({
   keystore,
   image,
   importKeystore,
@@ -108,7 +108,7 @@ export const WebKeystore: FC<IWebKeystore> = ({
 
   if (status !== 'empty') {
     actions.push(
-      <KeystoreMenu
+      <InterfaceMenu
         key={'menu'}
         status={status}
         keystore={keystore}
@@ -207,9 +207,7 @@ export const WebKeystore: FC<IWebKeystore> = ({
               </IconButton>
             )}
 
-            {status === 'unlocked' && (
-              <SearchKeystoreDialog keystore={keystore} />
-            )}
+            {status === 'unlocked' && <SearchDialog keystore={keystore} />}
           </CardActions>
         </React.Fragment>
       )}

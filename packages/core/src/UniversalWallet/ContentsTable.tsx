@@ -5,7 +5,7 @@ import { JSONEditor } from '../JSONEditor';
 
 import { ClickableDID } from '../ClickableDID';
 
-export const KeystoreTable = ({ keystore }: any) => {
+export const ContentsTable = ({ keystore }: any) => {
   const columns: any = [
     {
       title: 'Type',

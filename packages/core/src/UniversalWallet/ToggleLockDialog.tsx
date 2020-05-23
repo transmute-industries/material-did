@@ -2,6 +2,8 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
+
+import TextField from '@material-ui/core/TextField';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -10,7 +12,6 @@ import CloseIcon from '@material-ui/icons/Close';
 import Slide from '@material-ui/core/Slide';
 import MenuItem from '@material-ui/core/MenuItem';
 
-import { JSONEditor } from '../JSONEditor';
 const useStyles = makeStyles(theme => ({
   appBar: {
     position: 'relative',
@@ -28,13 +29,18 @@ const Transition: any = React.forwardRef(function Transition(
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export const EditKeystoreDialog = ({ keystore, saveKeystore }: any) => {
+export const ToggleLockDialog = ({
+  status,
+  toggleLockStatus,
+  passwordPrompt,
+  keystore,
+}: any) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
-  const [editorValue, setEditorValue] = React.useState(
-    JSON.stringify(keystore.contents, null, 2)
-  );
+  const [state, setState] = React.useState({
+    password: '',
+  });
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -45,8 +51,11 @@ export const EditKeystoreDialog = ({ keystore, saveKeystore }: any) => {
   };
 
   return (
-    <React.Fragment>
-      <MenuItem onClick={handleClickOpen}>Edit</MenuItem>
+    <div>
+      <MenuItem onClick={handleClickOpen}>
+        {' '}
+        {status === 'locked' ? 'Unlock' : 'Lock'}
+      </MenuItem>
       <Dialog
         fullScreen
         open={open}
@@ -64,22 +73,48 @@ export const EditKeystoreDialog = ({ keystore, saveKeystore }: any) => {
               <CloseIcon />
             </IconButton>
             <Typography variant="h6" className={classes.title}>
-              Edit
+              {status === 'locked' ? 'Unlock' : 'Lock'}
             </Typography>
-            <Button
-              autoFocus
-              color="inherit"
-              onClick={() => {
-                saveKeystore(JSON.parse(editorValue));
-                handleClose();
-              }}
-            >
-              Save
+            <Button autoFocus color="inherit" onClick={handleClose}>
+              Close
             </Button>
           </Toolbar>
-          <JSONEditor value={editorValue} onChange={setEditorValue} />
         </AppBar>
+
+        <form style={{ width: '75%', margin: 'auto', padding: '16px' }}>
+          <Typography variant="h6" style={{ marginBottom: '16px' }}>
+            {passwordPrompt}
+          </Typography>
+          <TextField
+            autoFocus
+            margin="dense"
+            id="password"
+            label="Password"
+            type="password"
+            value={state.password}
+            onChange={(event: any) => {
+              setState({
+                password: event.target.value,
+              });
+            }}
+            fullWidth
+          />
+          <Button
+            style={{ marginTop: '16px' }}
+            variant={'contained'}
+            onClick={() => {
+              toggleLockStatus({
+                status: keystore.status,
+                password: state.password,
+                contents: keystore.contents,
+              });
+              handleClose();
+            }}
+          >
+            {status === 'locked' ? 'Unlock' : 'Lock'}{' '}
+          </Button>
+        </form>
       </Dialog>
-    </React.Fragment>
+    </div>
   );
 };

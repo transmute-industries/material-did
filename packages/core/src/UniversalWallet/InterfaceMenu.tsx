@@ -4,9 +4,9 @@ import MenuItem from '@material-ui/core/MenuItem';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import IconButton from '@material-ui/core/IconButton';
 
-import { EditKeystoreDialog } from './EditKeystoreDialog';
-import { ToggleKeystoreLockDialog } from './ToggleKeystoreLockDialog';
-export const KeystoreMenu = ({
+import { EditContentsDialog } from './EditContentsDialog';
+import { ToggleLockDialog } from './ToggleLockDialog';
+export const InterfaceMenu = ({
   status,
   keystore,
   passwordPrompt,
@@ -43,10 +43,10 @@ export const KeystoreMenu = ({
       >
         <MenuItem onClick={deleteKeystore}>Delete</MenuItem>
         {status === 'unlocked' && (
-          <EditKeystoreDialog keystore={keystore} saveKeystore={saveKeystore} />
+          <EditContentsDialog keystore={keystore} saveKeystore={saveKeystore} />
         )}
         {status !== 'empty' && (
-          <ToggleKeystoreLockDialog
+          <ToggleLockDialog
             status={status}
             passwordPrompt={passwordPrompt}
             toggleLockStatus={toggleLockStatus}

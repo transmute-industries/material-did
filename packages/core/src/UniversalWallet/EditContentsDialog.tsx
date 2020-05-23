@@ -8,9 +8,9 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
 import Slide from '@material-ui/core/Slide';
-import Search from '@material-ui/icons/Search';
+import MenuItem from '@material-ui/core/MenuItem';
 
-import { KeystoreTable } from './KeystoreTable';
+import { JSONEditor } from '../JSONEditor';
 const useStyles = makeStyles(theme => ({
   appBar: {
     position: 'relative',
@@ -28,9 +28,13 @@ const Transition: any = React.forwardRef(function Transition(
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export const SearchKeystoreDialog = ({ keystore }: any) => {
+export const EditContentsDialog = ({ keystore, saveKeystore }: any) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
+
+  const [editorValue, setEditorValue] = React.useState(
+    JSON.stringify(keystore.contents, null, 2)
+  );
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -41,10 +45,8 @@ export const SearchKeystoreDialog = ({ keystore }: any) => {
   };
 
   return (
-    <div>
-      <Button onClick={handleClickOpen} endIcon={<Search />}>
-        Search
-      </Button>
+    <React.Fragment>
+      <MenuItem onClick={handleClickOpen}>Edit</MenuItem>
       <Dialog
         fullScreen
         open={open}
@@ -62,15 +64,22 @@ export const SearchKeystoreDialog = ({ keystore }: any) => {
               <CloseIcon />
             </IconButton>
             <Typography variant="h6" className={classes.title}>
-              Search
+              Edit
             </Typography>
-            <Button autoFocus color="inherit" onClick={handleClose}>
-              Close
+            <Button
+              autoFocus
+              color="inherit"
+              onClick={() => {
+                saveKeystore(JSON.parse(editorValue));
+                handleClose();
+              }}
+            >
+              Save
             </Button>
           </Toolbar>
+          <JSONEditor value={editorValue} onChange={setEditorValue} />
         </AppBar>
-        <KeystoreTable keystore={keystore} />
       </Dialog>
-    </div>
+    </React.Fragment>
   );
 };

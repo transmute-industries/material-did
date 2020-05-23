@@ -1,12 +1,12 @@
 import React from 'react';
-import { WebKeystore } from '.';
+import { UniversalWallet } from '.';
 
 import { UniversalWallet2020 } from '@transmute/universal-wallet';
 
 import { unlockedContents, lockedContents } from './fixtures';
 
 export default {
-  title: 'Components|Web Keystore',
+  title: 'Components|Universal Wallet',
 };
 
 const image =
@@ -85,7 +85,7 @@ const Default = (props: any) => {
 
   return (
     <div>
-      <WebKeystore
+      <UniversalWallet
         keystore={keystore}
         image={image}
         importKeystore={importKeystore}

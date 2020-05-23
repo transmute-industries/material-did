@@ -5,7 +5,7 @@ export * from './DIDDocumentPreview';
 export * from './DIDDocumentPropertyTable';
 
 export * from './VerifiableCredential';
-export * from './WebKeystore';
+export * from './UniversalWallet';
 
 export * from './JSONEditor';
 export * from './ExpansionPanelList';
