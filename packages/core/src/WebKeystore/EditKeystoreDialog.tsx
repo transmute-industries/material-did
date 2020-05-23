@@ -33,7 +33,7 @@ export const EditKeystoreDialog = ({ keystore, saveKeystore }: any) => {
   const [open, setOpen] = React.useState(false);
 
   const [editorValue, setEditorValue] = React.useState(
-    JSON.stringify(keystore.data, null, 2)
+    JSON.stringify(keystore.contents, null, 2)
   );
 
   const handleClickOpen = () => {

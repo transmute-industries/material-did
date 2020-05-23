@@ -95,6 +95,7 @@ export const WebKeystore: FC<IWebKeystore> = ({
   keystore,
   image,
   importKeystore,
+  exportWallet,
   generateKeystore,
   saveKeystore,
   toggleLockStatus,
@@ -151,7 +152,7 @@ export const WebKeystore: FC<IWebKeystore> = ({
           </Avatar>
         }
         action={actions}
-        title="Keystore"
+        title="Universal Wallet 2020"
       />
       <CardMedia
         className={classes.media}
@@ -195,7 +196,11 @@ export const WebKeystore: FC<IWebKeystore> = ({
               <IconButton
                 aria-label="Export Keystore"
                 onClick={() => {
-                  download('keystore.txt', keystore.data);
+                  const exported = exportWallet(
+                    keystore.status,
+                    keystore.contents
+                  );
+                  download('wallet.json', exported);
                 }}
               >
                 <CloudDownload />

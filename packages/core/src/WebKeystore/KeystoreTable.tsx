@@ -7,43 +7,54 @@ import { ClickableDID } from '../ClickableDID';
 
 export const KeystoreTable = ({ keystore }: any) => {
   const columns: any = [
-    // { title: 'ID', field: 'kid' },
     {
       title: 'Type',
       field: 'type',
       render: (rowData: any) => {
-        return rowData.tags[0];
+        return Array.isArray(rowData.type) ? rowData.type[0] : rowData.type;
       },
     },
     {
-      title: 'Tags',
-      field: 'tags',
+      title: 'Controller',
+      field: 'controller',
       render: (rowData: any) => {
-        return rowData.tags.map((t: any) => {
-          if (t.indexOf('did:') !== -1) {
-            return (
-              <ClickableDID
-                key={t}
-                did={t}
-                onClick={() => {
-                  console.log('tag clicked', t);
-                }}
-              />
-            );
-          }
-          return undefined;
-        });
+        if (rowData.controller) {
+          return rowData.controller.map((t: any) => {
+            if (t.indexOf('did:') !== -1) {
+              return (
+                <ClickableDID
+                  key={t}
+                  did={t}
+                  onClick={() => {
+                    console.log('tag clicked', t);
+                  }}
+                />
+              );
+            }
+            return undefined;
+          });
+        }
+        return (
+          <ClickableDID
+            did={rowData.id}
+            onClick={() => {
+              console.log('tag clicked', rowData.id);
+            }}
+          />
+        );
       },
     },
   ];
-  const rows: any = [...Object.values(keystore.data)];
+  const rows: any = keystore.contents;
   return (
     <MaterialTable
-      title="Keystore"
+      title="Contents"
       columns={columns}
       data={rows}
       detailPanel={rowData => {
-        return <JSONEditor value={JSON.stringify({ ...rowData }, null, 2)} />;
+        const withoutMutation: any = { ...rowData };
+        delete withoutMutation.tableData;
+        return <JSONEditor value={JSON.stringify(withoutMutation, null, 2)} />;
       }}
     />
   );

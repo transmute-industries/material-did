@@ -1,5 +1,5 @@
 export const getKeystoreContext = (keystore: any) => {
-  if (!keystore || keystore.data === null) {
+  if (!keystore || (keystore.contents && keystore.contents.length === 0)) {
     return {
       status: 'empty',
       title: 'You have no keys',
@@ -9,7 +9,7 @@ export const getKeystoreContext = (keystore: any) => {
     };
   }
 
-  if (typeof keystore.data === 'string') {
+  if (keystore.status === 'LOCKED') {
     return {
       status: 'locked',
       title: 'You have encrypted keys',

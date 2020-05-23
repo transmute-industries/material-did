@@ -104,9 +104,9 @@ export const ToggleKeystoreLockDialog = ({
             variant={'contained'}
             onClick={() => {
               toggleLockStatus({
-                status,
+                status: keystore.status,
                 password: state.password,
-                data: keystore.data,
+                contents: keystore.contents,
               });
               handleClose();
             }}
