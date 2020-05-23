@@ -28,12 +28,12 @@ const Transition: any = React.forwardRef(function Transition(
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export const EditContentsDialog = ({ keystore, saveKeystore }: any) => {
+export const EditContentsDialog = ({ walletState, saveWallet }: any) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
   const [editorValue, setEditorValue] = React.useState(
-    JSON.stringify(keystore.contents, null, 2)
+    JSON.stringify(walletState.contents, null, 2)
   );
 
   const handleClickOpen = () => {
@@ -70,7 +70,7 @@ export const EditContentsDialog = ({ keystore, saveKeystore }: any) => {
               autoFocus
               color="inherit"
               onClick={() => {
-                saveKeystore(JSON.parse(editorValue));
+                saveWallet(JSON.parse(editorValue));
                 handleClose();
               }}
             >

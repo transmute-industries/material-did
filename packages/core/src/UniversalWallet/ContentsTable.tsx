@@ -5,7 +5,7 @@ import { JSONEditor } from '../JSONEditor';
 
 import { ClickableDID } from '../ClickableDID';
 
-export const ContentsTable = ({ keystore }: any) => {
+export const ContentsTable = ({ walletState }: any) => {
   const columns: any = [
     {
       title: 'Type',
@@ -45,7 +45,7 @@ export const ContentsTable = ({ keystore }: any) => {
       },
     },
   ];
-  const rows: any = keystore.contents;
+  const rows: any = walletState.contents;
   return (
     <MaterialTable
       title="Contents"

@@ -28,7 +28,7 @@ const Transition: any = React.forwardRef(function Transition(
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export const SearchDialog = ({ keystore }: any) => {
+export const SearchDialog = ({ walletState }: any) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -69,7 +69,7 @@ export const SearchDialog = ({ keystore }: any) => {
             </Button>
           </Toolbar>
         </AppBar>
-        <ContentsTable keystore={keystore} />
+        <ContentsTable walletState={walletState} />
       </Dialog>
     </div>
   );

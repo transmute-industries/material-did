@@ -8,11 +8,11 @@ import { EditContentsDialog } from './EditContentsDialog';
 import { ToggleLockDialog } from './ToggleLockDialog';
 export const InterfaceMenu = ({
   status,
-  keystore,
+  walletState,
   passwordPrompt,
   toggleLockStatus,
-  deleteKeystore,
-  saveKeystore,
+  deleteWallet,
+  saveWallet,
 }: any) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -41,16 +41,19 @@ export const InterfaceMenu = ({
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={deleteKeystore}>Delete</MenuItem>
+        <MenuItem onClick={deleteWallet}>Delete</MenuItem>
         {status === 'unlocked' && (
-          <EditContentsDialog keystore={keystore} saveKeystore={saveKeystore} />
+          <EditContentsDialog
+            walletState={walletState}
+            saveWallet={saveWallet}
+          />
         )}
         {status !== 'empty' && (
           <ToggleLockDialog
             status={status}
             passwordPrompt={passwordPrompt}
             toggleLockStatus={toggleLockStatus}
-            keystore={keystore}
+            walletState={walletState}
           />
         )}
       </Menu>

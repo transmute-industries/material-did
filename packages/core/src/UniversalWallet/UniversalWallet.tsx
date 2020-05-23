@@ -25,7 +25,7 @@ import {
 import { InterfaceMenu } from './InterfaceMenu';
 import { SearchDialog } from './SearchDialog';
 
-import { getKeystoreContext, download } from './help';
+import { getWalletStateContext, download } from './help';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -54,7 +54,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function KeystoreStatusIcon({ status }: any) {
+function WalletStateStatusIcon({ status }: any) {
   switch (status) {
     case 'empty':
       return <NoteAdd />;
@@ -69,7 +69,7 @@ function KeystoreStatusIcon({ status }: any) {
   }
 }
 
-function keyStoreStatusColor(status: string) {
+function walletStateStatusColor(status: string) {
   switch (status) {
     case 'empty':
       return blue[500];
@@ -83,25 +83,28 @@ function keyStoreStatusColor(status: string) {
 }
 
 export interface IUniversalWallet extends HTMLAttributes<HTMLDivElement> {
-  keystore: any;
+  walletState: any;
   image: string;
-  importKeystore: any;
-  saveKeystore: any;
-  generateKeystore: any;
   toggleLockStatus: any;
-  deleteKeystore: any;
+  generateWallet: any;
+  importWallet: any;
+  exportWallet: any;
+  saveWallet: any;
+  deleteWallet: any;
 }
 export const UniversalWallet: FC<IUniversalWallet> = ({
-  keystore,
+  walletState,
   image,
-  importKeystore,
+  importWallet,
   exportWallet,
-  generateKeystore,
-  saveKeystore,
+  generateWallet,
+  saveWallet,
   toggleLockStatus,
-  deleteKeystore,
+  deleteWallet,
 }) => {
-  const { status, subheader, passwordPrompt } = getKeystoreContext(keystore);
+  const { status, subheader, passwordPrompt } = getWalletStateContext(
+    walletState
+  );
   const classes = useStyles();
 
   let actions = [];
@@ -111,11 +114,11 @@ export const UniversalWallet: FC<IUniversalWallet> = ({
       <InterfaceMenu
         key={'menu'}
         status={status}
-        keystore={keystore}
+        walletState={walletState}
         passwordPrompt={passwordPrompt}
         toggleLockStatus={toggleLockStatus}
-        saveKeystore={saveKeystore}
-        deleteKeystore={deleteKeystore}
+        saveWallet={saveWallet}
+        deleteWallet={deleteWallet}
       />
     );
   }
@@ -125,14 +128,14 @@ export const UniversalWallet: FC<IUniversalWallet> = ({
       <input
         // accept="text/plain"
         style={{ display: 'none' }}
-        id="keystore-file-input"
+        id="walletState-file-input"
         multiple
         onChange={(event: any) => {
           Object.keys(event.target.files).map(index => {
             const file = event.target.files[index];
             const reader = new FileReader();
             reader.onload = (upload: any) => {
-              importKeystore(upload.target.result);
+              importWallet(upload.target.result);
             };
             return reader.readAsText(file);
           });
@@ -145,10 +148,10 @@ export const UniversalWallet: FC<IUniversalWallet> = ({
             aria-label="lock"
             className={classes.avatar}
             style={{
-              backgroundColor: keyStoreStatusColor(status),
+              backgroundColor: walletStateStatusColor(status),
             }}
           >
-            <KeystoreStatusIcon status={status} />
+            <WalletStateStatusIcon status={status} />
           </Avatar>
         }
         action={actions}
@@ -157,7 +160,7 @@ export const UniversalWallet: FC<IUniversalWallet> = ({
       <CardMedia
         className={classes.media}
         image={image}
-        title="Keystore Icon"
+        title="walletState Icon"
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
@@ -169,21 +172,21 @@ export const UniversalWallet: FC<IUniversalWallet> = ({
           <Button
             aria-label="import"
             onClick={() => {
-              const target = document.getElementById('keystore-file-input');
+              const target = document.getElementById('walletState-file-input');
               if (target) {
                 target.click();
               }
             }}
-            endIcon={<KeystoreStatusIcon status={status} />}
+            endIcon={<WalletStateStatusIcon status={status} />}
           >
             Import
           </Button>
 
           <Button
             onClick={() => {
-              generateKeystore();
+              generateWallet();
             }}
-            endIcon={<KeystoreStatusIcon status={'create'} />}
+            endIcon={<WalletStateStatusIcon status={'create'} />}
           >
             Create
           </Button>
@@ -194,11 +197,11 @@ export const UniversalWallet: FC<IUniversalWallet> = ({
           <CardActions disableSpacing>
             {status === 'locked' && (
               <IconButton
-                aria-label="Export Keystore"
+                aria-label="Export walletState"
                 onClick={() => {
                   const exported = exportWallet(
-                    keystore.status,
-                    keystore.contents
+                    walletState.status,
+                    walletState.contents
                   );
                   download('wallet.json', exported);
                 }}
@@ -207,7 +210,9 @@ export const UniversalWallet: FC<IUniversalWallet> = ({
               </IconButton>
             )}
 
-            {status === 'unlocked' && <SearchDialog keystore={keystore} />}
+            {status === 'unlocked' && (
+              <SearchDialog walletState={walletState} />
+            )}
           </CardActions>
         </React.Fragment>
       )}

@@ -33,7 +33,7 @@ export const ToggleLockDialog = ({
   status,
   toggleLockStatus,
   passwordPrompt,
-  keystore,
+  walletState,
 }: any) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
@@ -104,9 +104,9 @@ export const ToggleLockDialog = ({
             variant={'contained'}
             onClick={() => {
               toggleLockStatus({
-                status: keystore.status,
+                status: walletState.status,
                 password: state.password,
-                contents: keystore.contents,
+                contents: walletState.contents,
               });
               handleClose();
             }}

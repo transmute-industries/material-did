@@ -13,7 +13,7 @@ const image =
   'https://www.transmute.industries/svg/Logo-Transmute-icon-Purp.svg';
 
 const Default = (props: any) => {
-  const [keystore, setWalletState]: any = React.useState({
+  const [walletState, setWalletState]: any = React.useState({
     status: props.status,
     contents: props.contents,
   });
@@ -36,16 +36,16 @@ const Default = (props: any) => {
     });
   };
 
-  const deleteKeystore = () => {
-    console.log('deleteKeystore');
+  const deleteWallet = () => {
+    console.log('deleteWallet');
     setWalletState({
       status: 'UNLOCKED',
       contents: [],
     });
   };
 
-  const importKeystore = async (encryptedWallet: string) => {
-    console.log('importKeystore', encryptedWallet);
+  const importWallet = async (encryptedWallet: string) => {
+    console.log('importWallet', encryptedWallet);
     let wallet = new UniversalWallet2020();
     await wallet.import(encryptedWallet);
     // console.log('wallet', wallet);
@@ -65,8 +65,8 @@ const Default = (props: any) => {
     return wallet.export();
   };
 
-  const generateKeystore = async () => {
-    console.log('generateKeystore');
+  const generateWallet = async () => {
+    console.log('generateWallet');
     const password = 'storybook';
     const seed = await UniversalWallet2020.passwordToSeed(password);
     let wallet = await UniversalWallet2020.generate(seed);
@@ -76,8 +76,8 @@ const Default = (props: any) => {
     });
   };
 
-  const saveKeystore = (contents: any) => {
-    console.log('saveKeystore', contents);
+  const saveWallet = (contents: any) => {
+    console.log('saveWallet', contents);
     setWalletState({
       contents,
     });
@@ -86,14 +86,14 @@ const Default = (props: any) => {
   return (
     <div>
       <UniversalWallet
-        keystore={keystore}
+        walletState={walletState}
         image={image}
-        importKeystore={importKeystore}
+        importWallet={importWallet}
         exportWallet={exportWallet}
         toggleLockStatus={toggleLockStatus}
-        saveKeystore={saveKeystore}
-        deleteKeystore={deleteKeystore}
-        generateKeystore={generateKeystore}
+        saveWallet={saveWallet}
+        deleteWallet={deleteWallet}
+        generateWallet={generateWallet}
         {...props}
       />
     </div>
