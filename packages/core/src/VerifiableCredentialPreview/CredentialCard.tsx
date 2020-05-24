@@ -38,11 +38,7 @@ export const CredentialCard: FC<ICredentialCard> = ({
   verifiableCredential,
 }) => {
   const classes = useStyles();
-
-  console.log(verifiableCredential);
-
   const [expanded, setExpanded] = React.useState('panel1');
-
   const handleChange = (panel: any) => (_event: any, newExpanded: any) => {
     setExpanded(newExpanded ? panel : false);
   };

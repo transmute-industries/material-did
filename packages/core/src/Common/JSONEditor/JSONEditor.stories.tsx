@@ -2,7 +2,7 @@ import React from 'react';
 import { JSONEditor, IJSONEditorProps } from '.';
 
 export default {
-  title: 'Common|JSONEditor',
+  title: 'Common|JSON Editor',
   component: JSONEditor,
 };
 

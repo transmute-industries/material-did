@@ -7,8 +7,10 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import QRCode from 'qrcode.react';
+import { JSONEditor } from '../Common/JSONEditor';
+import { LinkedDataPropertyTable } from '../Common/LinkedDataPropertyTable';
 
-import { JSONEditor } from '../JSONEditor';
 import { CredentialCard } from './CredentialCard';
 
 function TabPanel(props: any) {
@@ -48,13 +50,13 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export interface IVerificationCredential
+export interface IVerifiableCredentialPreviewProps
   extends HTMLAttributes<HTMLDivElement> {
-  verifiableCredential: any;
+  document: any;
 }
 
-export const VerificationCredential: FC<IVerificationCredential> = ({
-  verifiableCredential,
+export const VerifiableCredentialPreview: FC<IVerifiableCredentialPreviewProps> = ({
+  document,
 }) => {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
@@ -67,15 +69,23 @@ export const VerificationCredential: FC<IVerificationCredential> = ({
     <div className={classes.root}>
       <AppBar position="static" color={'primary'}>
         <Tabs value={value} onChange={handleChange} aria-label="VC Tabs">
-          <Tab label="Preview" {...a11yProps(0)} />
-          <Tab label="Source" {...a11yProps(1)} />
+          <Tab label="Card" {...a11yProps(0)} />
+          <Tab label="Table" {...a11yProps(1)} />
+          <Tab label="QR Code" {...a11yProps(2)} />
+          <Tab label="Source" {...a11yProps(3)} />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        <CredentialCard verifiableCredential={verifiableCredential} />
+        <CredentialCard verifiableCredential={document} />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <JSONEditor value={JSON.stringify(verifiableCredential, null, 2)} />
+        <LinkedDataPropertyTable document={document} />
+      </TabPanel>
+      <TabPanel value={value} index={2}>
+        <QRCode value={document.id} />
+      </TabPanel>
+      <TabPanel value={value} index={3}>
+        <JSONEditor value={JSON.stringify(document, null, 2)} />
       </TabPanel>
     </div>
   );

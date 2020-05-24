@@ -6,7 +6,7 @@ import { UniversalWallet2020 } from '@transmute/universal-wallet';
 import { unlockedContents, lockedContents } from './fixtures';
 
 export default {
-  title: 'Components|Universal Wallet',
+  title: 'Components|Wallet',
 };
 
 const image =

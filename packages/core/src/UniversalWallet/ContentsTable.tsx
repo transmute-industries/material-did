@@ -1,9 +1,9 @@
 import React from 'react';
 import MaterialTable from 'material-table';
 
-import { JSONEditor } from '../JSONEditor';
+import { JSONEditor } from '../Common/JSONEditor';
 
-import { ClickableDID } from '../ClickableDID';
+import { LinkedDataIdentifier } from '../Common/LinkedDataIdentifier';
 
 export const ContentsTable = ({ walletState }: any) => {
   const columns: any = [
@@ -22,9 +22,9 @@ export const ContentsTable = ({ walletState }: any) => {
           return rowData.controller.map((t: any) => {
             if (t.indexOf('did:') !== -1) {
               return (
-                <ClickableDID
+                <LinkedDataIdentifier
                   key={t}
-                  did={t}
+                  value={t}
                   onClick={() => {
                     console.log('tag clicked', t);
                   }}
@@ -35,8 +35,8 @@ export const ContentsTable = ({ walletState }: any) => {
           });
         }
         return (
-          <ClickableDID
-            did={rowData.id}
+          <LinkedDataIdentifier
+            value={rowData.id}
             onClick={() => {
               console.log('tag clicked', rowData.id);
             }}

@@ -2,7 +2,7 @@ import React from 'react';
 import { ExpansionPanelList, IExpansionPanelList } from '.';
 
 export default {
-  title: 'Common|ExpansionPanelList',
+  title: 'Common|Expansion Panel List',
   component: ExpansionPanelList,
 };
 

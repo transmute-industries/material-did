@@ -3,7 +3,7 @@ import MaterialTable from 'material-table';
 
 import { DIDDocumentPreview } from '../DIDDocumentPreview';
 import Link from '@material-ui/core/Link';
-import { ClickableDID } from '../ClickableDID';
+import { LinkedDataIdentifier } from '../Common/LinkedDataIdentifier';
 
 export interface IDIDDocumentListProps extends HTMLAttributes<HTMLDivElement> {
   list: any;
@@ -16,8 +16,8 @@ export const DIDDocumentList = ({ list }: any) => {
       field: 'id',
       render: (rowData: any) => {
         return (
-          <ClickableDID
-            did={rowData.id}
+          <LinkedDataIdentifier
+            value={rowData.id}
             onClick={() => {
               window.open(`https://uniresolver.io/#${rowData.id}`);
             }}
@@ -39,7 +39,7 @@ export const DIDDocumentList = ({ list }: any) => {
   ];
   return (
     <MaterialTable
-      title="DIDs"
+      title="Decentralized Identifiers"
       columns={columns}
       data={list}
       localization={{

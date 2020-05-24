@@ -8,8 +8,8 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import QRCode from 'qrcode.react';
-import { JSONEditor } from '../JSONEditor';
-import { DIDDocumentPropertyTable } from '../DIDDocumentPropertyTable';
+import { JSONEditor } from '../Common/JSONEditor';
+import { LinkedDataPropertyTable } from '../Common/LinkedDataPropertyTable';
 
 function TabPanel(props: any) {
   const { children, value, index, ...other } = props;
@@ -53,6 +53,26 @@ export interface IDIDDocumentPreviewProps
   didDocument: any;
 }
 
+const download = (filename: string, text: string) => {
+  const element = document.createElement('a');
+  element.setAttribute(
+    'href',
+    `data:text/plain;charset=utf-8,${encodeURIComponent(text)}`
+  );
+  element.setAttribute('download', filename);
+
+  element.style.display = 'none';
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
+};
+
+const onRowExport = (data: any) => {
+  download('row.json', JSON.stringify(data, null, 2));
+};
+
 export const DIDDocumentPreview: FC<IDIDDocumentPreviewProps> = ({
   didDocument,
 }) => {
@@ -61,6 +81,11 @@ export const DIDDocumentPreview: FC<IDIDDocumentPreviewProps> = ({
 
   const handleChange = (_event: any, newValue: any) => {
     setValue(newValue);
+  };
+
+  const onTitleClick = () => {
+    let url = `https://uniresolver.io/#${didDocument.id}`;
+    window.open(url);
   };
 
   return (
@@ -73,7 +98,11 @@ export const DIDDocumentPreview: FC<IDIDDocumentPreviewProps> = ({
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        <DIDDocumentPropertyTable didDocument={didDocument} />
+        <LinkedDataPropertyTable
+          onTitleClick={onTitleClick}
+          onRowExport={onRowExport}
+          document={didDocument}
+        />
       </TabPanel>
       <TabPanel value={value} index={1}>
         <QRCode value={didDocument.id} />
