@@ -1,8 +1,6 @@
 import React from 'react';
 import MaterialTable from 'material-table';
 
-import { JSONEditor } from '../Common/JSONEditor';
-
 import { LinkedDataIdentifier } from '../Common';
 
 import { WalletContentDetails } from './WalletContentDetails';

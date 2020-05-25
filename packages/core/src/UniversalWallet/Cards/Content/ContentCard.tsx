@@ -14,7 +14,7 @@ import TrackChangesIcon from '@material-ui/icons/TrackChanges';
 import StyleIcon from '@material-ui/icons/Style';
 import DescriptionIcon from '@material-ui/icons/Description';
 import { LinkedDataIdentifier } from '../../../Common/LinkedDataIdentifier';
-import { JSONEditor } from '../../../Common/JSONEditor';
+
 import { ExpansionPanelList } from '../../../Common/ExpansionPanelList';
 const useStyles = makeStyles(theme => ({
   root: {
