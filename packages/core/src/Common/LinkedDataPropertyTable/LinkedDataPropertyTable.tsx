@@ -45,11 +45,20 @@ export const LinkedDataPropertyTable = ({
           ...expanded,
         })
       );
+      // console.log(flattenExpanded);
       let vocabTerms: any = {};
       flattenExpanded.forEach((item: any) => {
         if (item.indexOf('#') !== -1) {
           let term = item.split('#').pop();
           vocabTerms[term] = item;
+          return;
+        }
+        if (item.indexOf('http') !== -1) {
+          let term = item.split('/').pop();
+          if (term) {
+            vocabTerms[term] = item;
+            return;
+          }
         }
       });
       setState({
@@ -57,7 +66,7 @@ export const LinkedDataPropertyTable = ({
         render: true,
       });
     })();
-  }, []);
+  }, [document]);
 
   const flatDocument = flatten({
     ...document,
@@ -72,7 +81,7 @@ export const LinkedDataPropertyTable = ({
 
   const columns: any = [
     {
-      title: 'Key',
+      title: 'Property',
       field: 'key',
       render: (rowData: any) => {
         let jsonPath = `$.${rowData.key}`;
@@ -93,7 +102,11 @@ export const LinkedDataPropertyTable = ({
             <LinkedDataIdentifier
               value={value}
               onClick={() => {
-                window.open(value);
+                if (Array.isArray(rowData.value)) {
+                  window.open(rowData.value[0]);
+                } else {
+                  window.open(rowData.value);
+                }
               }}
             />
           );
@@ -108,6 +121,10 @@ export const LinkedDataPropertyTable = ({
               }}
             />
           );
+        }
+
+        if (rowData.value.indexOf('urn:') !== -1) {
+          value = <LinkedDataIdentifier value={rowData.value} />;
         }
 
         if (state.vocabTerms[rowData.value]) {

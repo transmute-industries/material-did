@@ -1,52 +1,161 @@
+export const Entropy = {
+  '@context': [
+    'https://transmute-industries.github.io/universal-wallet/contexts/wallet-v1.json',
+  ],
+  id:
+    'urn:digest:d3288f0d87f58b50c5eeb8979e15fc8ce684a36ae6c360f593cde69159d6743c',
+  name: 'My Entropy',
+  image: 'https://via.placeholder.com/150',
+  description: 'For testing only.',
+  tags: ['inception'],
+  correlation: [
+    'urn:digest:d3288f0d87f58b50c5eeb8979e15fc8ce684a36ae6c360f593cde69159d6743c',
+  ],
+  type: 'Entropy',
+  value: '712645d49e11c871c17ed149a48e0c3cdb24ecebfcf5ef885d1d8c078d4fcc24',
+};
+
+export const Mnemonic = {
+  '@context': [
+    'https://transmute-industries.github.io/universal-wallet/contexts/wallet-v1.json',
+  ],
+  id: 'urn:uuid:c410e44a-9525-11ea-bb37-0242ac130002',
+  name: 'My Ropsten Mnemonic 1',
+  image: 'https://via.placeholder.com/150',
+  description: 'For testing only, totally compromised.',
+  tags: ['professional', 'organization', 'compromised'],
+  correlation: ['4058a72a-9523-11ea-bb37-0242ac130002'],
+  type: 'Mnemonic',
+  value:
+    'humble piece toy mimic miss hurdle smile awkward patch drama hurry mixture',
+};
+
+export const Ed25519VerificationKey2018 = {
+  '@context': [
+    'https://transmute-industries.github.io/universal-wallet/contexts/wallet-v1.json',
+  ],
+  id:
+    'did:key:z6Mkn28V7Mk7TyvS82GH5CByFWgBeTbtUedc3HDvJz4bta5f#z6Mkn28V7Mk7TyvS82GH5CByFWgBeTbtUedc3HDvJz4bta5f',
+  type: 'Ed25519VerificationKey2018',
+  controller: [
+    'did:key:z6Mkn28V7Mk7TyvS82GH5CByFWgBeTbtUedc3HDvJz4bta5f#z6Mkn28V7Mk7TyvS82GH5CByFWgBeTbtUedc3HDvJz4bta5f',
+  ],
+  publicKeyBase58: '8ZsSX7Vg8SRy1XRaPdE8QR8BptL34mPFMGJzUi6ayMJH',
+  privateKeyBase58:
+    '3GD7Tf1LVyyeFTDGyKN965Uxv4URGpqXf1zatENh8KD4nhhxnpSAHrXFt8gSK7ef1qLtyeQNutW1znAVGhFb7wC5',
+  name: 'My Signing Key',
+  image: 'https://via.placeholder.com/150',
+  description: 'Generated from seed.',
+  tags: ['inception'],
+  correlation: [
+    'urn:digest:d3288f0d87f58b50c5eeb8979e15fc8ce684a36ae6c360f593cde69159d6743c',
+  ],
+};
+
+export const X25519KeyAgreementKey2019 = {
+  '@context': [
+    'https://transmute-industries.github.io/universal-wallet/contexts/wallet-v1.json',
+  ],
+  id:
+    'did:key:z6Mkn28V7Mk7TyvS82GH5CByFWgBeTbtUedc3HDvJz4bta5f#z6LSnyFDbNfnxgA9MjPwxubimEn2HeDz82kcTgy5XviPUzMU',
+  type: 'X25519KeyAgreementKey2019',
+  controller: [
+    'did:key:z6Mkn28V7Mk7TyvS82GH5CByFWgBeTbtUedc3HDvJz4bta5f#z6LSnyFDbNfnxgA9MjPwxubimEn2HeDz82kcTgy5XviPUzMU',
+  ],
+  publicKeyBase58: 'CJ5454rvsDSQGM2BSG5mSeZYSVgsRRaTaiFQ3U4rmcai',
+  privateKeyBase58: 'Dw9WeBXLdBPr5wLVkPNAaTeC5vMhouJqngHrsyTNnXjN',
+  name: 'My Encryption Key',
+  image: 'https://via.placeholder.com/150',
+  description: 'Generated from seed.',
+  tags: ['inception'],
+  correlation: [
+    'urn:digest:d3288f0d87f58b50c5eeb8979e15fc8ce684a36ae6c360f593cde69159d6743c',
+  ],
+};
+
+export const Currency = {
+  '@context': [
+    'https://transmute-industries.github.io/universal-wallet/contexts/wallet-v1.json',
+  ],
+  id:
+    'https://live.blockcypher.com/btc-testnet/address/mu6vftfsBxJDhnUQVrZfwjzj5BL5WRvLUH/',
+  type: 'Currency',
+  name: 'BTC for Tessting',
+  image: 'https://via.placeholder.com/150',
+  description: 'Bitcoin reserved for testing',
+  tags: ['personal'],
+  amount: '7.00749119',
+  currency: 'BTC',
+  controller: ['mu6vftfsBxJDhnUQVrZfwjzj5BL5WRvLUH'],
+  correlation: ['4058a72a-9523-11ea-bb37-0242ac130002'],
+};
+
+export const Credential = {
+  '@context': [
+    'https://www.w3.org/2018/credentials/v1',
+    'https://www.w3.org/2018/credentials/examples/v1',
+  ],
+  id: 'http://example.gov/credentials/3732',
+  type: ['VerifiableCredential', 'UniversityDegreeCredential'],
+  issuer: {
+    id: 'did:example:123456789abcdefghi',
+  },
+  issuanceDate: '2020-03-10T04:24:12.164Z',
+  credentialSubject: {
+    id: 'did:example:ebfeb1f712ebc6f1c276e12ec21',
+    degree: {
+      type: 'BachelorDegree',
+      name: 'Bachelor of Science and Arts',
+    },
+  },
+  proof: {
+    type: 'JsonWebSignature2020',
+    created: '2020-03-21T17:51:48Z',
+    verificationMethod:
+      'did:example:123456789abcdefghi#_Qq0UL2Fq651Q0Fjd6TvnYE-faHiOpRlPVQcY_-tA4A',
+    proofPurpose: 'assertionMethod',
+    jws:
+      'eyJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdLCJhbGciOiJFZERTQSJ9..OPxskX37SK0FhmYygDk-S4csY_gNhCUgSOAaXFXDTZx86CmI5nU9xkqtLWg-f4cqkigKDdMVdtIqWAvaYx2JBA',
+  },
+};
+
+export const MetaData = {
+  '@context': [
+    'https://transmute-industries.github.io/universal-wallet/contexts/wallet-v1.json',
+  ],
+  id: 'urn:uuid:2905324a-9524-11ea-bb37-0242ac130002',
+  type: 'MetaData',
+  name: 'Degree Notes',
+  image: 'https://via.placeholder.com/150',
+  description: 'Personal notes about this degree.',
+  tags: ['professional', 'organization'],
+  correlation: ['urn:uuid:4058a72a-9523-11ea-bb37-0242ac130002'],
+  note:
+    "I've shared this degree, with many websites that have been breached. It should be considered public information at this point :(",
+};
+
+export const Profile = {
+  '@context': [
+    'https://transmute-industries.github.io/universal-wallet/contexts/wallet-v1.json',
+  ],
+  id: 'did:example:123456789abcdefghi',
+  type: 'Person',
+  name: 'John Smith',
+  image: 'https://via.placeholder.com/150',
+  description: 'Professional software developer for Acme Corp.',
+  tags: ['professional', 'person'],
+  correlation: ['4058a72a-9523-11ea-bb37-0242ac130002'],
+};
+
 export const unlockedContents = [
-  {
-    id:
-      'urn:digest:d3288f0d87f58b50c5eeb8979e15fc8ce684a36ae6c360f593cde69159d6743c',
-    title: 'My Entropy',
-    image: 'https://via.placeholder.com/150',
-    description: 'For testing only.',
-    tags: ['inception'],
-    correlation: [
-      'urn:digest:d3288f0d87f58b50c5eeb8979e15fc8ce684a36ae6c360f593cde69159d6743c',
-    ],
-    type: 'Entropy',
-    seed: '712645d49e11c871c17ed149a48e0c3cdb24ecebfcf5ef885d1d8c078d4fcc24',
-  },
-  {
-    id:
-      'did:key:z6Mkn28V7Mk7TyvS82GH5CByFWgBeTbtUedc3HDvJz4bta5f#z6Mkn28V7Mk7TyvS82GH5CByFWgBeTbtUedc3HDvJz4bta5f',
-    type: 'Ed25519VerificationKey2018',
-    controller: [
-      'did:key:z6Mkn28V7Mk7TyvS82GH5CByFWgBeTbtUedc3HDvJz4bta5f#z6Mkn28V7Mk7TyvS82GH5CByFWgBeTbtUedc3HDvJz4bta5f',
-    ],
-    publicKeyBase58: '8ZsSX7Vg8SRy1XRaPdE8QR8BptL34mPFMGJzUi6ayMJH',
-    privateKeyBase58:
-      '3GD7Tf1LVyyeFTDGyKN965Uxv4URGpqXf1zatENh8KD4nhhxnpSAHrXFt8gSK7ef1qLtyeQNutW1znAVGhFb7wC5',
-    title: 'My Signing Key',
-    image: 'https://via.placeholder.com/150',
-    description: 'Generated from seed.',
-    tags: ['inception'],
-    correlation: [
-      'urn:digest:d3288f0d87f58b50c5eeb8979e15fc8ce684a36ae6c360f593cde69159d6743c',
-    ],
-  },
-  {
-    id:
-      'did:key:z6Mkn28V7Mk7TyvS82GH5CByFWgBeTbtUedc3HDvJz4bta5f#z6LSnyFDbNfnxgA9MjPwxubimEn2HeDz82kcTgy5XviPUzMU',
-    type: 'X25519KeyAgreementKey2019',
-    controller: [
-      'did:key:z6Mkn28V7Mk7TyvS82GH5CByFWgBeTbtUedc3HDvJz4bta5f#z6LSnyFDbNfnxgA9MjPwxubimEn2HeDz82kcTgy5XviPUzMU',
-    ],
-    publicKeyBase58: 'CJ5454rvsDSQGM2BSG5mSeZYSVgsRRaTaiFQ3U4rmcai',
-    privateKeyBase58: 'Dw9WeBXLdBPr5wLVkPNAaTeC5vMhouJqngHrsyTNnXjN',
-    title: 'My Encryption Key',
-    image: 'https://via.placeholder.com/150',
-    description: 'Generated from seed.',
-    tags: ['inception'],
-    correlation: [
-      'urn:digest:d3288f0d87f58b50c5eeb8979e15fc8ce684a36ae6c360f593cde69159d6743c',
-    ],
-  },
+  Profile,
+  Entropy,
+  Mnemonic,
+  Ed25519VerificationKey2018,
+  X25519KeyAgreementKey2019,
+  Currency,
+  Credential,
+  MetaData,
 ];
 
 export const lockedContents = [

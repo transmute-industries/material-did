@@ -27,7 +27,7 @@ export const LinkedDataIdentifier: FC<ILinkedDataIdentifierProps> = ({
             <Identicon size={32} count={5} string={value} />
           </span>
         }
-        style={{ maxWidth: '256px' }}
+        style={{ maxWidth: '224px' }}
         label={value}
         onClick={onClick}
       />

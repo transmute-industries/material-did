@@ -3,7 +3,23 @@ import MaterialTable from 'material-table';
 
 import { JSONEditor } from '../Common/JSONEditor';
 
-import { LinkedDataIdentifier } from '../Common/LinkedDataIdentifier';
+import { LinkedDataIdentifier } from '../Common';
+
+import { WalletContentDetails } from './WalletContentDetails';
+
+const ControllerList = ({ controller }: any) => {
+  return (
+    <React.Fragment>
+      {controller.map((t: any) => {
+        return (
+          <div key={t}>
+            <LinkedDataIdentifier value={t.split('#')[0]} />
+          </div>
+        );
+      })}
+    </React.Fragment>
+  );
+};
 
 export const ContentsTable = ({ walletState }: any) => {
   const columns: any = [
@@ -18,30 +34,11 @@ export const ContentsTable = ({ walletState }: any) => {
       title: 'Controller',
       field: 'controller',
       render: (rowData: any) => {
-        if (rowData.controller) {
-          return rowData.controller.map((t: any) => {
-            if (t.indexOf('did:') !== -1) {
-              return (
-                <LinkedDataIdentifier
-                  key={t}
-                  value={t}
-                  onClick={() => {
-                    console.log('tag clicked', t);
-                  }}
-                />
-              );
-            }
-            return undefined;
-          });
+        // console.log(rowData, rowData.controller);
+        if (Array.isArray(rowData.controller)) {
+          return <ControllerList controller={rowData.controller} />;
         }
-        return (
-          <LinkedDataIdentifier
-            value={rowData.id}
-            onClick={() => {
-              console.log('tag clicked', rowData.id);
-            }}
-          />
-        );
+        return <LinkedDataIdentifier value={rowData.id} />;
       },
     },
   ];
@@ -54,7 +51,7 @@ export const ContentsTable = ({ walletState }: any) => {
       detailPanel={rowData => {
         const withoutMutation: any = { ...rowData };
         delete withoutMutation.tableData;
-        return <JSONEditor value={JSON.stringify(withoutMutation, null, 2)} />;
+        return <WalletContentDetails document={withoutMutation} />;
       }}
     />
   );

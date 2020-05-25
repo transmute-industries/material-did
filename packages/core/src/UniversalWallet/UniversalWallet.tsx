@@ -155,7 +155,7 @@ export const UniversalWallet: FC<IUniversalWallet> = ({
           </Avatar>
         }
         action={actions}
-        title="Universal Wallet 2020"
+        title="Universal Wallet"
       />
       <CardMedia
         className={classes.media}
