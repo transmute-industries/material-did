@@ -2,7 +2,7 @@
 
 [https://material-did.com](https://material-did.com)
 
-> Material UI for Decentralized Identifiers.
+> Material UI for Decentralized Identifiers, Verifiable Credentials and Wallets.
 
 ![CI](https://github.com/transmute-industries/material-did/workflows/CI/badge.svg)
 
@@ -22,9 +22,3 @@ npm run build
 See [./packages/core](./packages/core)
 
 This module contains all components and stories.
-
-## Demo
-
-See [./packages/demo](./packages/demo)
-
-This module contains a demo create react app for sanity testing.
