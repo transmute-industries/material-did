@@ -5,7 +5,7 @@ export const Entropy = {
   id:
     'urn:digest:d3288f0d87f58b50c5eeb8979e15fc8ce684a36ae6c360f593cde69159d6743c',
   name: 'My Entropy',
-  image: 'https://via.placeholder.com/150',
+  image: 'https://issuer.interop.transmute.world/logo512.png',
   description: 'For testing only.',
   tags: ['inception'],
   correlation: [
@@ -21,7 +21,7 @@ export const Mnemonic = {
   ],
   id: 'urn:uuid:c410e44a-9525-11ea-bb37-0242ac130002',
   name: 'My Ropsten Mnemonic 1',
-  image: 'https://via.placeholder.com/150',
+  image: 'https://issuer.interop.transmute.world/logo512.png',
   description: 'For testing only, totally compromised.',
   tags: ['professional', 'organization', 'compromised'],
   correlation: ['4058a72a-9523-11ea-bb37-0242ac130002'],
@@ -44,7 +44,7 @@ export const Ed25519VerificationKey2018 = {
   privateKeyBase58:
     '3GD7Tf1LVyyeFTDGyKN965Uxv4URGpqXf1zatENh8KD4nhhxnpSAHrXFt8gSK7ef1qLtyeQNutW1znAVGhFb7wC5',
   name: 'My Signing Key',
-  image: 'https://via.placeholder.com/150',
+  image: 'https://issuer.interop.transmute.world/logo512.png',
   description: 'Generated from seed.',
   tags: ['inception'],
   correlation: [
@@ -65,7 +65,7 @@ export const X25519KeyAgreementKey2019 = {
   publicKeyBase58: 'CJ5454rvsDSQGM2BSG5mSeZYSVgsRRaTaiFQ3U4rmcai',
   privateKeyBase58: 'Dw9WeBXLdBPr5wLVkPNAaTeC5vMhouJqngHrsyTNnXjN',
   name: 'My Encryption Key',
-  image: 'https://via.placeholder.com/150',
+  image: 'https://issuer.interop.transmute.world/logo512.png',
   description: 'Generated from seed.',
   tags: ['inception'],
   correlation: [
@@ -81,7 +81,7 @@ export const Currency = {
     'https://live.blockcypher.com/btc-testnet/address/mu6vftfsBxJDhnUQVrZfwjzj5BL5WRvLUH/',
   type: 'Currency',
   name: 'BTC for Tessting',
-  image: 'https://via.placeholder.com/150',
+  image: 'https://issuer.interop.transmute.world/logo512.png',
   description: 'Bitcoin reserved for testing',
   tags: ['personal'],
   amount: '7.00749119',
@@ -126,7 +126,7 @@ export const MetaData = {
   id: 'urn:uuid:2905324a-9524-11ea-bb37-0242ac130002',
   type: 'MetaData',
   name: 'Degree Notes',
-  image: 'https://via.placeholder.com/150',
+  image: 'https://issuer.interop.transmute.world/logo512.png',
   description: 'Personal notes about this degree.',
   tags: ['professional', 'organization'],
   correlation: ['urn:uuid:4058a72a-9523-11ea-bb37-0242ac130002'],
@@ -141,7 +141,7 @@ export const Profile = {
   id: 'did:example:123456789abcdefghi',
   type: 'Person',
   name: 'John Smith',
-  image: 'https://via.placeholder.com/150',
+  image: 'https://issuer.interop.transmute.world/logo512.png',
   description: 'Professional software developer for Acme Corp.',
   tags: ['professional', 'person'],
   correlation: ['4058a72a-9523-11ea-bb37-0242ac130002'],

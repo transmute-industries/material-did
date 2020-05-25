@@ -10,7 +10,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import Slide from '@material-ui/core/Slide';
 import MenuItem from '@material-ui/core/MenuItem';
 
-import { JSONEditor } from '../Common/JSONEditor';
+import { JSONEditor } from '../../../Common/JSONEditor';
 const useStyles = makeStyles(theme => ({
   appBar: {
     position: 'relative',

@@ -4,8 +4,10 @@ import MenuItem from '@material-ui/core/MenuItem';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import IconButton from '@material-ui/core/IconButton';
 
-import { EditContentsDialog } from './EditContentsDialog';
-import { ToggleLockDialog } from './ToggleLockDialog';
+import { EditContentsDialog } from './Interface/Edit';
+import { IssueVerifiableCredentialDialog } from './Interface/Issue';
+import { ToggleLockDialog } from './Interface/Toggle';
+
 export const InterfaceMenu = ({
   status,
   walletState,
@@ -13,6 +15,7 @@ export const InterfaceMenu = ({
   toggleLockStatus,
   deleteWallet,
   saveWallet,
+  issueCredential,
 }: any) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -24,6 +27,74 @@ export const InterfaceMenu = ({
     setAnchorEl(null);
   };
 
+  let verificationMethodOptions: any = [];
+  let issueCredentialOptions = {};
+  let credential = {};
+
+  if (walletState.status === 'UNLOCKED' && walletState.contents.length) {
+    const firstKey = walletState.contents.find((c: any) => {
+      return c.type === 'Ed25519VerificationKey2018';
+    });
+
+    verificationMethodOptions = [firstKey];
+
+    issueCredentialOptions = {
+      verificationMethod: firstKey.id,
+    };
+    const firstCredential = walletState.contents.find((c: any) => {
+      return Array.isArray(c.type) && c.type[0] === 'VerifiableCredential';
+    });
+    if (firstCredential) {
+      credential = {
+        ...firstCredential,
+      };
+      delete firstCredential.proof;
+    }
+  }
+
+  const menuItems = [
+    <MenuItem key={'delete'} onClick={deleteWallet}>
+      Delete
+    </MenuItem>,
+  ];
+
+  if (status === 'unlocked') {
+    menuItems.push(
+      <EditContentsDialog
+        key={'edit'}
+        walletState={walletState}
+        saveWallet={saveWallet}
+      />
+    );
+    menuItems.push(
+      <IssueVerifiableCredentialDialog
+        key={'issue'}
+        verificationMethodOptions={verificationMethodOptions}
+        issueCredentialOptions={issueCredentialOptions}
+        credential={credential}
+        component={MenuItem}
+        componentProps={{}}
+        onSubmit={({ credential, options }: any) => {
+          issueCredential({ credential, options });
+          setAnchorEl(null);
+        }}
+      />
+    );
+  }
+
+  if (status !== 'empty') {
+    menuItems.push(
+      <ToggleLockDialog
+        key={'toggle'}
+        status={status}
+        passwordPrompt={passwordPrompt}
+        toggleLockStatus={toggleLockStatus}
+        walletState={walletState}
+      />
+    );
+  }
+
+  // console.log(credential);
   return (
     <div>
       <IconButton
@@ -41,21 +112,7 @@ export const InterfaceMenu = ({
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={deleteWallet}>Delete</MenuItem>
-        {status === 'unlocked' && (
-          <EditContentsDialog
-            walletState={walletState}
-            saveWallet={saveWallet}
-          />
-        )}
-        {status !== 'empty' && (
-          <ToggleLockDialog
-            status={status}
-            passwordPrompt={passwordPrompt}
-            toggleLockStatus={toggleLockStatus}
-            walletState={walletState}
-          />
-        )}
+        {menuItems}
       </Menu>
     </div>
   );

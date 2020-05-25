@@ -33,39 +33,46 @@ export const LinkedDataPropertyTable = ({
   });
 
   React.useEffect(() => {
-    (async () => {
-      const expanded = await jsonld.expand(
-        {
-          ...document,
-        },
-        ...document['@context']
-      );
-      const flattenExpanded = Object.values(
-        flatten({
-          ...expanded,
-        })
-      );
-      // console.log(flattenExpanded);
-      let vocabTerms: any = {};
-      flattenExpanded.forEach((item: any) => {
-        if (item.indexOf('#') !== -1) {
-          let term = item.split('#').pop();
-          vocabTerms[term] = item;
-          return;
-        }
-        if (item.indexOf('http') !== -1) {
-          let term = item.split('/').pop();
-          if (term) {
+    const doAsync = async () => {
+      try {
+        const expanded = await jsonld.expand(
+          {
+            ...document,
+          },
+          ...document['@context']
+        );
+        const flattenExpanded = Object.values(
+          flatten({
+            ...expanded,
+          })
+        );
+        // console.log(flattenExpanded);
+        let vocabTerms: any = {};
+        flattenExpanded.forEach((item: any) => {
+          if (item.indexOf('#') !== -1) {
+            let term = item.split('#').pop();
             vocabTerms[term] = item;
             return;
           }
-        }
-      });
-      setState({
-        vocabTerms,
-        render: true,
-      });
-    })();
+          if (item.indexOf('http') !== -1) {
+            let term = item.split('/').pop();
+            if (term) {
+              vocabTerms[term] = item;
+              return;
+            }
+          }
+        });
+        setState({
+          vocabTerms,
+          render: true,
+        });
+      } catch (e) {
+        setState({
+          render: true,
+        });
+      }
+    };
+    doAsync();
   }, [document]);
 
   const flatDocument = flatten({

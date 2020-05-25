@@ -83,6 +83,18 @@ const Default = (props: any) => {
     });
   };
 
+  const issueCredential = async ({ credential, options }: any) => {
+    console.log('issueCredential', { credential, options });
+    let wallet = new UniversalWallet2020(walletState.contents);
+    const verifiableCredentail = await wallet.issue({
+      credential,
+      options,
+    });
+    setWalletState({
+      contents: [verifiableCredentail, ...walletState.contents],
+    });
+  };
+
   return (
     <div>
       <UniversalWallet
@@ -94,6 +106,7 @@ const Default = (props: any) => {
         saveWallet={saveWallet}
         deleteWallet={deleteWallet}
         generateWallet={generateWallet}
+        issueCredential={issueCredential}
         {...props}
       />
     </div>
