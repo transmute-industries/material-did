@@ -9,7 +9,12 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import { JSONEditor } from '../Common/JSONEditor';
 import { LinkedDataPropertyTable } from '../Common/LinkedDataPropertyTable';
-import { ContentCard, PresentationCard, CredentialCard } from './Cards';
+import {
+  ContentCard,
+  CurrencyCard,
+  PresentationCard,
+  CredentialCard,
+} from './Cards';
 
 function TabPanel(props: any) {
   const { children, value, index, ...other } = props;
@@ -62,6 +67,9 @@ const ContentSwitch: FC<IWalletContentDetailsProps> = ({ document }) => {
     return <PresentationCard content={document} />;
   }
   switch (document.type) {
+    case 'Currency':
+      return <CurrencyCard content={document} />;
+
     default: {
       return <ContentCard content={document} />;
     }

@@ -51,6 +51,29 @@ export const getVerifiableCredentials = (walletState: any) => {
   return { ...results };
 };
 
+export const getCurrencies = (walletState: any) => {
+  let wallet = new UniversalWallet2020([...walletState.contents]);
+  const initialValue = {
+    currencies: [],
+  };
+  const results = wallet.query(
+    (content: any) => {
+      if (content.type === 'Currency') {
+        return content;
+      }
+      return false;
+    },
+    (initialValue: any, item: any) => {
+      if (item) {
+        initialValue.currencies.push(item);
+      }
+      return initialValue;
+    },
+    initialValue
+  );
+  return { ...results };
+};
+
 export const getDefaultCredential = () => {
   return {
     '@context': [

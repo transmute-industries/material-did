@@ -78,16 +78,14 @@ export const Currency = {
     'https://transmute-industries.github.io/universal-wallet/contexts/wallet-v1.json',
   ],
   id:
-    'https://live.blockcypher.com/btc-testnet/address/mu6vftfsBxJDhnUQVrZfwjzj5BL5WRvLUH/',
+    'https://ropsten.etherscan.io/address/0x3b4477c4cd54718d32d4df393415796b9bfcb63c',
   type: 'Currency',
-  name: 'BTC for Tessting',
-  image: 'https://issuer.interop.transmute.world/logo512.png',
-  description: 'Bitcoin reserved for testing',
-  tags: ['personal'],
-  amount: '7.00749119',
-  currency: 'BTC',
-  controller: ['mu6vftfsBxJDhnUQVrZfwjzj5BL5WRvLUH'],
-  correlation: ['4058a72a-9523-11ea-bb37-0242ac130002'],
+  amount: '4.999356509',
+  currency: 'ETH',
+  controller: ['did:ethr:0x3b4477c4cd54718d32d4df393415796b9bfcb63c'],
+  name: 'MetaMask Account 0',
+  image: 'https://metamask.io/images/webclip.png',
+  description: 'Hot wallet funds.',
 };
 
 export const Credential = {

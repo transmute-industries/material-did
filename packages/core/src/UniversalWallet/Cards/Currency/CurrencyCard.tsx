@@ -1,21 +1,25 @@
 import React, { FC, HTMLAttributes } from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
+import _ from 'lodash';
+import moment from 'moment';
 
 import Grid from '@material-ui/core/Grid';
-import QRCode from 'qrcode.react';
+import Typography from '@material-ui/core/Typography';
+import VideogameAssetIcon from '@material-ui/icons/VideogameAsset';
+import StyleIcon from '@material-ui/icons/Style';
 import Avatar from '@material-ui/core/Avatar';
-import ScannerIcon from '@material-ui/icons/Scanner';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import ContactMailIcon from '@material-ui/icons/ContactMail';
 import TrackChangesIcon from '@material-ui/icons/TrackChanges';
-import StyleIcon from '@material-ui/icons/Style';
+import AccountBalanceWalletIcon from '@material-ui/icons/AccountBalanceWallet';
 import DescriptionIcon from '@material-ui/icons/Description';
 import { LinkedDataIdentifier } from '../../../Common/LinkedDataIdentifier';
-
 import { ExpansionPanelList } from '../../../Common/ExpansionPanelList';
+
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -37,11 +41,11 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export interface IContentCardProps extends HTMLAttributes<HTMLDivElement> {
+export interface ICurrencyCardProps extends HTMLAttributes<HTMLDivElement> {
   content: any;
 }
 
-export const ContentCard: FC<IContentCardProps> = ({ content }) => {
+export const CurrencyCard: FC<ICurrencyCardProps> = ({ content }) => {
   const classes = useStyles();
 
   const panels = [
@@ -76,25 +80,56 @@ export const ContentCard: FC<IContentCardProps> = ({ content }) => {
         </Grid>
       ),
     },
+
     {
       title: (
         <List>
           <ListItem>
             <ListItemAvatar>
               <Avatar className={classes.pink}>
-                <ScannerIcon />
+                <ContactMailIcon />
               </Avatar>
             </ListItemAvatar>
             <ListItemText
-              primary={'QR Code'}
-              // secondary={'Human friendly labels'}
+              primary={'Balance'}
               style={{ wordBreak: 'break-all' }}
             />
           </ListItem>
         </List>
       ),
       disabled: false,
-      children: <QRCode value={content.id} />,
+      children: (
+        <Grid container>
+          <Grid item style={{ flexGrow: 1 }}>
+            <List style={{ paddingTop: '0' }}>
+              <ListItem style={{ paddingTop: '0' }}>
+                <ListItemAvatar>
+                  <Avatar className={classes.pink}>
+                    <AccountBalanceWalletIcon />
+                  </Avatar>
+                </ListItemAvatar>
+                <ListItemText
+                  primary={content.currency}
+                  secondary={content.amount}
+                  style={{ wordBreak: 'break-all' }}
+                />
+              </ListItem>
+              <ListItem style={{ paddingTop: '0' }}>
+                <ListItemAvatar>
+                  <Avatar className={classes.pink}>
+                    <VideogameAssetIcon />
+                  </Avatar>
+                </ListItemAvatar>
+                <ListItemText
+                  primary={'Controller'}
+                  secondary={content.controller}
+                  style={{ wordBreak: 'break-all' }}
+                />
+              </ListItem>
+            </List>
+          </Grid>
+        </Grid>
+      ),
     },
   ];
 
@@ -166,5 +201,6 @@ export const ContentCard: FC<IContentCardProps> = ({ content }) => {
       ),
     });
   }
+
   return <ExpansionPanelList panels={panels} />;
 };
