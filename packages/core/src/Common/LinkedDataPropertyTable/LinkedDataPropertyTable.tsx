@@ -149,11 +149,22 @@ export const LinkedDataPropertyTable = ({
   if (!state.render) {
     return <LinearProgress />;
   }
+
+  let title = (
+    <LinkedDataIdentifier value={document.id} onClick={onTitleClick} />
+  );
+
+  if (!document.id && document.proof) {
+    title = (
+      <LinkedDataIdentifier
+        value={document.proof.challenge}
+        onClick={onTitleClick}
+      />
+    );
+  }
   return (
     <MaterialTable
-      title={
-        <LinkedDataIdentifier value={document.id} onClick={onTitleClick} />
-      }
+      title={title}
       columns={columns}
       data={rows}
       localization={{

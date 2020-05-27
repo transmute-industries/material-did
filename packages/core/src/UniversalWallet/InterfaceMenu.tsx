@@ -6,6 +6,7 @@ import IconButton from '@material-ui/core/IconButton';
 
 import { EditContentsDialog } from './Interface/Edit';
 import { IssueVerifiableCredentialDialog } from './Interface/Issue';
+import { ProveVerifiableCredentialDialog } from './Interface/Prove';
 import { ToggleLockDialog } from './Interface/Toggle';
 
 export const InterfaceMenu = ({
@@ -16,6 +17,7 @@ export const InterfaceMenu = ({
   deleteWallet,
   saveWallet,
   issueCredential,
+  proveVerifiableCredential,
 }: any) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -26,31 +28,6 @@ export const InterfaceMenu = ({
   const handleClose = () => {
     setAnchorEl(null);
   };
-
-  let verificationMethodOptions: any = [];
-  let issueCredentialOptions = {};
-  let credential = {};
-
-  if (walletState.status === 'UNLOCKED' && walletState.contents.length) {
-    const firstKey = walletState.contents.find((c: any) => {
-      return c.type === 'Ed25519VerificationKey2018';
-    });
-
-    verificationMethodOptions = [firstKey];
-
-    issueCredentialOptions = {
-      verificationMethod: firstKey.id,
-    };
-    const firstCredential = walletState.contents.find((c: any) => {
-      return Array.isArray(c.type) && c.type[0] === 'VerifiableCredential';
-    });
-    if (firstCredential) {
-      credential = {
-        ...firstCredential,
-      };
-      delete firstCredential.proof;
-    }
-  }
 
   const menuItems = [
     <MenuItem key={'delete'} onClick={deleteWallet}>
@@ -69,13 +46,24 @@ export const InterfaceMenu = ({
     menuItems.push(
       <IssueVerifiableCredentialDialog
         key={'issue'}
-        verificationMethodOptions={verificationMethodOptions}
-        issueCredentialOptions={issueCredentialOptions}
-        credential={credential}
+        walletState={walletState}
         component={MenuItem}
         componentProps={{}}
         onSubmit={({ credential, options }: any) => {
           issueCredential({ credential, options });
+          setAnchorEl(null);
+        }}
+      />
+    );
+
+    menuItems.push(
+      <ProveVerifiableCredentialDialog
+        key={'prove'}
+        walletState={walletState}
+        component={MenuItem}
+        componentProps={{}}
+        onSubmit={({ verifiableCredential, options }: any) => {
+          proveVerifiableCredential({ verifiableCredential, options });
           setAnchorEl(null);
         }}
       />

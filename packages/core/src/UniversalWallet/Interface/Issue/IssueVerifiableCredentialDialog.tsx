@@ -15,6 +15,9 @@ import Slide from '@material-ui/core/Slide';
 
 import { JSONEditor } from '../../../Common';
 import { SelectWalletContent } from '../../SelectWalletContent';
+
+import { getSigningKeys, getDefaultCredential } from '../walletHelper';
+
 const useStyles = makeStyles(theme => ({
   appBar: {
     position: 'relative',
@@ -34,9 +37,7 @@ const Transition: any = React.forwardRef(function Transition(
 
 export interface IIssueVerifiableCredentialDialogProps
   extends HTMLAttributes<HTMLDivElement> {
-  verificationMethodOptions: any;
-  issueCredentialOptions: any;
-  credential: any;
+  walletState: any;
   onSubmit: any;
 
   component: any;
@@ -44,9 +45,7 @@ export interface IIssueVerifiableCredentialDialogProps
 }
 
 export const IssueVerifiableCredentialDialog: FC<IIssueVerifiableCredentialDialogProps> = ({
-  verificationMethodOptions,
-  issueCredentialOptions,
-  credential,
+  walletState,
   onSubmit,
   component,
   componentProps,
@@ -55,14 +54,38 @@ export const IssueVerifiableCredentialDialog: FC<IIssueVerifiableCredentialDialo
   const [open, setOpen] = React.useState(false);
 
   const [bindingModel, setBindingModel] = React.useState({
-    options: issueCredentialOptions,
-    credential: JSON.stringify(credential, null, 2),
+    options: {},
+    credential: '',
   });
+
+  const [
+    verificationMethodOptions,
+    setVerificationMethodOptions,
+  ]: any = React.useState([]);
+
+  const [
+    selectedVerificationMethod,
+    setSelectedVerificationMethod,
+  ]: any = React.useState({});
 
   const label = 'Select Issuer Key';
   const Trigger = component;
 
+  const handleSetup = () => {
+    const { signingKeys } = getSigningKeys(walletState);
+    const credential = getDefaultCredential();
+    setVerificationMethodOptions(signingKeys);
+    setSelectedVerificationMethod(signingKeys[0]);
+    setBindingModel({
+      options: {
+        verificationMethod: signingKeys[0].id,
+      },
+      credential: JSON.stringify(credential, null, 2),
+    });
+  };
+
   const handleClickOpen = () => {
+    handleSetup();
     setOpen(true);
   };
 
@@ -72,18 +95,13 @@ export const IssueVerifiableCredentialDialog: FC<IIssueVerifiableCredentialDialo
 
   const handleSubmit = () => {
     const parsedCredential = JSON.parse(bindingModel.credential);
+
     onSubmit({
       ...bindingModel,
       credential: parsedCredential,
     });
     setOpen(false);
   };
-
-  const selectedVerificationMethod = verificationMethodOptions.find(
-    (opt: any) => {
-      return opt.id === issueCredentialOptions.verificationMethod;
-    }
-  );
 
   return (
     <div>
@@ -121,20 +139,14 @@ export const IssueVerifiableCredentialDialog: FC<IIssueVerifiableCredentialDialo
           </Toolbar>
         </AppBar>
         <div style={{ margin: '16px' }}>
-          <Grid container spacing={4}>
+          <Grid container spacing={2}>
             <Grid item xs={12} sm={4}>
               <SelectWalletContent
                 label={label}
                 value={selectedVerificationMethod}
                 options={verificationMethodOptions}
                 onChange={(value: any) => {
-                  setBindingModel({
-                    ...bindingModel,
-                    options: {
-                      ...bindingModel.options,
-                      verificationMethod: value.id,
-                    },
-                  });
+                  setSelectedVerificationMethod(value);
                 }}
               />
             </Grid>

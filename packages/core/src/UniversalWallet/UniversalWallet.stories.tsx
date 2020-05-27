@@ -86,12 +86,29 @@ const Default = (props: any) => {
   const issueCredential = async ({ credential, options }: any) => {
     console.log('issueCredential', { credential, options });
     let wallet = new UniversalWallet2020(walletState.contents);
-    const verifiableCredentail = await wallet.issue({
+    const verifiableCredential = await wallet.issue({
       credential,
       options,
     });
+    console.log('verifiableCredential: ', verifiableCredential);
     setWalletState({
-      contents: [verifiableCredentail, ...walletState.contents],
+      contents: [verifiableCredential, ...walletState.contents],
+    });
+  };
+
+  const proveVerifiableCredential = async ({
+    verifiableCredential,
+    options,
+  }: any) => {
+    console.log('proveVerifiableCredential', { verifiableCredential, options });
+    let wallet = new UniversalWallet2020(walletState.contents);
+    const verifiablePresentation = await wallet.prove({
+      verifiableCredential,
+      options,
+    });
+    // console.log(JSON.stringify(verifiablePresentation, null, 2));
+    setWalletState({
+      contents: [verifiablePresentation, ...walletState.contents],
     });
   };
 
@@ -107,6 +124,7 @@ const Default = (props: any) => {
         deleteWallet={deleteWallet}
         generateWallet={generateWallet}
         issueCredential={issueCredential}
+        proveVerifiableCredential={proveVerifiableCredential}
         {...props}
       />
     </div>

@@ -92,6 +92,7 @@ export interface IUniversalWallet extends HTMLAttributes<HTMLDivElement> {
   saveWallet: any;
   deleteWallet: any;
   issueCredential: any;
+  proveVerifiableCredential: any;
 }
 export const UniversalWallet: FC<IUniversalWallet> = ({
   walletState,
@@ -103,6 +104,7 @@ export const UniversalWallet: FC<IUniversalWallet> = ({
   toggleLockStatus,
   deleteWallet,
   issueCredential,
+  proveVerifiableCredential,
 }) => {
   const { status, subheader, passwordPrompt } = getWalletStateContext(
     walletState
@@ -122,6 +124,7 @@ export const UniversalWallet: FC<IUniversalWallet> = ({
         saveWallet={saveWallet}
         deleteWallet={deleteWallet}
         issueCredential={issueCredential}
+        proveVerifiableCredential={proveVerifiableCredential}
       />
     );
   }

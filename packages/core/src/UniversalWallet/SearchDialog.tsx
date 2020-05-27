@@ -11,6 +11,7 @@ import Slide from '@material-ui/core/Slide';
 import Search from '@material-ui/icons/Search';
 
 import { ContentsTable } from './ContentsTable';
+
 const useStyles = makeStyles(theme => ({
   appBar: {
     position: 'relative',

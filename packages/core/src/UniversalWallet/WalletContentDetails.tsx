@@ -9,8 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import { JSONEditor } from '../Common/JSONEditor';
 import { LinkedDataPropertyTable } from '../Common/LinkedDataPropertyTable';
-import { ContentCard } from './Cards';
-import { CredentialCard } from '../VerifiableCredentialPreview/CredentialCard';
+import { ContentCard, PresentationCard, CredentialCard } from './Cards';
 
 function TabPanel(props: any) {
   const { children, value, index, ...other } = props;
@@ -54,7 +53,13 @@ const ContentSwitch: FC<IWalletContentDetailsProps> = ({ document }) => {
     Array.isArray(document.type) &&
     document.type[0] === 'VerifiableCredential'
   ) {
-    return <CredentialCard verifiableCredential={document} />;
+    return <CredentialCard content={document} />;
+  }
+  if (
+    Array.isArray(document.type) &&
+    document.type[0] === 'VerifiablePresentation'
+  ) {
+    return <PresentationCard content={document} />;
   }
   switch (document.type) {
     default: {

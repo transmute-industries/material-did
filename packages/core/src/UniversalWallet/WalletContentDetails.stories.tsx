@@ -77,3 +77,16 @@ export const Credential = (props?: Partial<IWalletContentDetailsProps>) => {
     </div>
   );
 };
+
+export const Presentation = (props?: Partial<IWalletContentDetailsProps>) => {
+  const document = unlockedContents.find((item: any) => {
+    return (
+      Array.isArray(item.type) && item.type[0] === 'VerifiablePresentation'
+    );
+  });
+  return (
+    <div>
+      <WalletContentDetails document={document} {...props} />
+    </div>
+  );
+};

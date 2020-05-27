@@ -77,7 +77,6 @@ export const SelectWalletContent = ({
         <TextField
           {...params}
           label={label}
-          variant="outlined"
           inputProps={{
             ...params.inputProps,
             autoComplete: 'new-password', // disable autocomplete and autofill

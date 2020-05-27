@@ -95,27 +95,70 @@ export const Credential = {
     'https://www.w3.org/2018/credentials/v1',
     'https://www.w3.org/2018/credentials/examples/v1',
   ],
-  id: 'http://example.gov/credentials/3732',
+  id: 'http://example.gov/credentials/0.6012887606574315',
   type: ['VerifiableCredential', 'UniversityDegreeCredential'],
-  issuer: {
-    id: 'did:example:123456789abcdefghi',
-  },
+  issuer: 'did:key:z6Mkn28V7Mk7TyvS82GH5CByFWgBeTbtUedc3HDvJz4bta5f',
   issuanceDate: '2020-03-10T04:24:12.164Z',
   credentialSubject: {
-    id: 'did:example:ebfeb1f712ebc6f1c276e12ec21',
+    id: 'did:example:456',
     degree: {
       type: 'BachelorDegree',
       name: 'Bachelor of Science and Arts',
     },
   },
   proof: {
-    type: 'JsonWebSignature2020',
-    created: '2020-03-21T17:51:48Z',
-    verificationMethod:
-      'did:example:123456789abcdefghi#_Qq0UL2Fq651Q0Fjd6TvnYE-faHiOpRlPVQcY_-tA4A',
-    proofPurpose: 'assertionMethod',
+    type: 'Ed25519Signature2018',
+    created: '2020-05-27T01:53:59Z',
     jws:
-      'eyJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdLCJhbGciOiJFZERTQSJ9..OPxskX37SK0FhmYygDk-S4csY_gNhCUgSOAaXFXDTZx86CmI5nU9xkqtLWg-f4cqkigKDdMVdtIqWAvaYx2JBA',
+      'eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..yTwDh8nXoncrBWZYEmXLTaGcJh7L4y7PJ--FVjw8CpcAvfPNdv_jUTkRkjSFyjO6VMiE0isiiYw5nUClzXCmAg',
+    proofPurpose: 'assertionMethod',
+    verificationMethod:
+      'did:key:z6Mkn28V7Mk7TyvS82GH5CByFWgBeTbtUedc3HDvJz4bta5f#z6Mkn28V7Mk7TyvS82GH5CByFWgBeTbtUedc3HDvJz4bta5f',
+  },
+};
+
+export const Presentation = {
+  '@context': ['https://www.w3.org/2018/credentials/v1'],
+  type: ['VerifiablePresentation'],
+  holder: 'did:key:z6Mkn28V7Mk7TyvS82GH5CByFWgBeTbtUedc3HDvJz4bta5f',
+  verifiableCredential: [
+    {
+      '@context': [
+        'https://www.w3.org/2018/credentials/v1',
+        'https://www.w3.org/2018/credentials/examples/v1',
+      ],
+      id: 'http://example.gov/credentials/0.6012887606574315',
+      type: ['VerifiableCredential', 'UniversityDegreeCredential'],
+      issuer: 'did:key:z6Mkn28V7Mk7TyvS82GH5CByFWgBeTbtUedc3HDvJz4bta5f',
+      issuanceDate: '2020-03-10T04:24:12.164Z',
+      credentialSubject: {
+        id: 'did:example:456',
+        degree: {
+          type: 'BachelorDegree',
+          name: 'Bachelor of Science and Arts',
+        },
+      },
+      proof: {
+        type: 'Ed25519Signature2018',
+        created: '2020-05-27T01:53:59Z',
+        jws:
+          'eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..yTwDh8nXoncrBWZYEmXLTaGcJh7L4y7PJ--FVjw8CpcAvfPNdv_jUTkRkjSFyjO6VMiE0isiiYw5nUClzXCmAg',
+        proofPurpose: 'assertionMethod',
+        verificationMethod:
+          'did:key:z6Mkn28V7Mk7TyvS82GH5CByFWgBeTbtUedc3HDvJz4bta5f#z6Mkn28V7Mk7TyvS82GH5CByFWgBeTbtUedc3HDvJz4bta5f',
+      },
+    },
+  ],
+  proof: {
+    type: 'Ed25519Signature2018',
+    created: '2020-05-27T01:56:22Z',
+    challenge: '99612b24-63d9-11ea-b99f-4f66f3e4f81a',
+    domain: 'verifier.example.com',
+    jws:
+      'eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..Q-Kpm1ETAych4Jiat4wAtovQ62FVMF4yMKhFsc8YGh-BmPdOIADTdurLl7iw3RNQVhqE98x81zDa6fN92zBXAw',
+    proofPurpose: 'authentication',
+    verificationMethod:
+      'did:key:z6Mkn28V7Mk7TyvS82GH5CByFWgBeTbtUedc3HDvJz4bta5f#z6Mkn28V7Mk7TyvS82GH5CByFWgBeTbtUedc3HDvJz4bta5f',
   },
 };
 
@@ -155,6 +198,7 @@ export const unlockedContents = [
   X25519KeyAgreementKey2019,
   Currency,
   Credential,
+  Presentation,
   MetaData,
 ];
 

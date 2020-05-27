@@ -7,7 +7,7 @@ import {
 } from '../fixtures';
 
 export default {
-  title: 'Components|Universal Wallet',
+  title: 'Components|Universal Wallet.Select',
   component: SelectWalletContent,
 };
 
@@ -21,7 +21,7 @@ const onChange = (option: any) => {
   console.log('selected: ', option);
 };
 
-export const SelectContent = (props?: Partial<ISelectWalletContentProps>) => (
+export const SelectOne = (props?: Partial<ISelectWalletContentProps>) => (
   <div>
     <SelectWalletContent
       label={label}
