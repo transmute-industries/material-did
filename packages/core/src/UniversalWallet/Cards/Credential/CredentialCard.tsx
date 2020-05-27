@@ -20,13 +20,8 @@ import DescriptionIcon from '@material-ui/icons/Description';
 import { LinkedDataIdentifier } from '../../../Common/LinkedDataIdentifier';
 import { ExpansionPanelList } from '../../../Common/ExpansionPanelList';
 
-const excludedCredentialSubjectProperties = ['image', 'type'];
-const excludedCredentialProperties = [
-  'credentialSubject',
-  'type',
-  '@context',
-  'proof',
-];
+const excludedCredentialSubjectProperties = ['image'];
+
 const dateKeys = ['issuanceDate', 'expirationDate'];
 
 const useStyles = makeStyles(theme => ({
