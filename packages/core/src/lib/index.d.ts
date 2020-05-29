@@ -4,3 +4,4 @@ declare module 'qrcode.react';
 declare module 'react-qr-reader';
 declare module 'flat';
 declare module 'jsonld';
+declare module 'ethjs';

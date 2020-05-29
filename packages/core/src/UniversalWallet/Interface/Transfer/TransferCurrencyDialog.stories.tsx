@@ -17,6 +17,10 @@ const walletState = {
 export const Transfer = (props?: Partial<ITransferCurrencyDialogProps>) => {
   const onSubmit = (data: any) => {
     console.log('onSubmit: ', data);
+    // build transaction
+    // submit transaction
+    // await response
+    // add to wallet ?
   };
   return (
     <div>

@@ -39,7 +39,8 @@
     "flat": "^5.0.0",
     "qrcode.react": "^1.0.0",
     "react-identicons": "^1.2.4",
-    "react-qr-reader": "^2.2.1"
+    "react-qr-reader": "^2.2.1",
+    "@material-ui/lab": "^4.0.0-alpha.54"
   },
   "husky": {
     "hooks": {
@@ -67,6 +68,7 @@
     "@types/react": "^16.9.34",
     "@types/react-dom": "^16.9.7",
     "babel-loader": "^8.1.0",
+    "ethjs": "^0.4.0",
     "flat": "^5.0.0",
     "gh-pages": "^2.2.0",
     "husky": "^4.2.5",
@@ -82,10 +84,8 @@
     "ts-loader": "^7.0.2",
     "tsdx": "^0.13.2",
     "tslib": "^1.11.1",
-    "typescript": "^3.8.3"
-  },
-  "dependencies": {
-    "@material-ui/lab": "^4.0.0-alpha.54",
-    "ethjs": "^0.4.0"
+    "typescript": "^3.8.3",
+    "web3": "^1.2.8",
+    "@material-ui/lab": "^4.0.0-alpha.54"
   }
 }

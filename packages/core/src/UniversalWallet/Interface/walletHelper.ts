@@ -74,6 +74,29 @@ export const getCurrencies = (walletState: any) => {
   return { ...results };
 };
 
+export const getEthereumAddresses = (walletState: any) => {
+  let wallet = new UniversalWallet2020([...walletState.contents]);
+  const initialValue = {
+    addresses: [],
+  };
+  const results = wallet.query(
+    (content: any) => {
+      if (content.type === 'EthereumAddress') {
+        return content;
+      }
+      return false;
+    },
+    (initialValue: any, item: any) => {
+      if (item) {
+        initialValue.addresses.push(item);
+      }
+      return initialValue;
+    },
+    initialValue
+  );
+  return { ...results };
+};
+
 export const getDefaultCredential = () => {
   return {
     '@context': [

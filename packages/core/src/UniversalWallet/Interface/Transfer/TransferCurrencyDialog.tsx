@@ -14,9 +14,9 @@ import CloseIcon from '@material-ui/icons/Close';
 import Slide from '@material-ui/core/Slide';
 
 import { SelectWalletContent } from '../../SelectWalletContent';
-// import { SelectMultipleWalletContent } from '../../SelectMultipleWalletContent';
-import { getSigningKeys, getCurrencies } from '../walletHelper';
-// import { ContentsTable } from '../../ContentsTable';
+import { TransactionPreviewSendCurrency } from '../../Transactions/SendCurrency';
+import { getCurrencies, getEthereumAddresses } from '../walletHelper';
+
 const useStyles = makeStyles(theme => ({
   appBar: {
     position: 'relative',
@@ -54,9 +54,9 @@ export const TransferCurrencyDialog: FC<ITransferCurrencyDialogProps> = ({
 
   const [bindingModel, setBindingModel] = React.useState({
     options: {
-      sender: 'did:ethr:0x242c3Cb5d8d9E68a8bBfaC9D6704583f1df80AD6',
+      sender: 'did:ethr:0x123',
       receiver: 'did:ethr:0x3b4477C4cd54718D32d4dF393415796b9bfcB63c',
-      amount: '0.001',
+      amount: '0.0',
       currency: 'ETH',
     },
     currency: {},
@@ -65,32 +65,25 @@ export const TransferCurrencyDialog: FC<ITransferCurrencyDialogProps> = ({
   const [currencyOptions, setCurrencyOptions]: any = React.useState([]);
   const [selectedCurrency, setSelectedCurrency]: any = React.useState({});
 
-  const [
-    verificationMethodOptions,
-    setVerificationMethodOptions,
-  ]: any = React.useState([]);
-
-  const [
-    selectedVerificationMethod,
-    setSelectedVerificationMethod,
-  ]: any = React.useState({});
+  const [senderOptions, setSenderOptions]: any = React.useState([]);
+  const [selectedSender, setSelectedSender]: any = React.useState({});
 
   const Trigger = component;
 
   const handleSetup = () => {
-    const { signingKeys } = getSigningKeys(walletState);
+    const { addresses } = getEthereumAddresses(walletState);
     const { currencies } = getCurrencies(walletState);
-    setVerificationMethodOptions(signingKeys);
-    setSelectedVerificationMethod(signingKeys[0]);
-    setCurrencyOptions(currencies);
 
-    if (currencies.length) {
-      setSelectedCurrency(currencies[0]);
-    }
+    setSenderOptions(addresses);
+    setSelectedSender(addresses[0]);
+
+    setCurrencyOptions(currencies);
+    setSelectedCurrency(currencies[0]);
 
     setBindingModel({
       options: {
         ...bindingModel.options,
+        sender: addresses[0].id,
       },
       currency: currencies[0],
     });
@@ -107,9 +100,7 @@ export const TransferCurrencyDialog: FC<ITransferCurrencyDialogProps> = ({
 
   const handleSubmit = () => {
     let sanitized = JSON.parse(JSON.stringify(bindingModel));
-    sanitized.verifiableCredential.forEach((vc: any) => {
-      delete vc.tableData;
-    });
+    delete sanitized.currency.tableData;
     onSubmit(sanitized);
     setOpen(false);
   };
@@ -155,10 +146,10 @@ export const TransferCurrencyDialog: FC<ITransferCurrencyDialogProps> = ({
               <div style={{ marginBottom: '16px' }}>
                 <SelectWalletContent
                   label={'Sender'}
-                  value={selectedVerificationMethod}
-                  options={verificationMethodOptions}
+                  value={selectedSender}
+                  options={senderOptions}
                   onChange={(value: any) => {
-                    setSelectedVerificationMethod(value);
+                    setSelectedSender(value);
                     setBindingModel({
                       ...bindingModel,
                       options: {
@@ -176,14 +167,14 @@ export const TransferCurrencyDialog: FC<ITransferCurrencyDialogProps> = ({
                   options={currencyOptions}
                   onChange={(value: any) => {
                     console.log(value);
-                    setSelectedVerificationMethod(value);
-                    // setBindingModel({
-                    //   ...bindingModel,
-                    //   options: {
-                    //     ...bindingModel.options,
-                    //     sender: value.id,
-                    //   },
-                    // });
+                    setSelectedSender(value);
+                    setBindingModel({
+                      ...bindingModel,
+                      options: {
+                        ...bindingModel.options,
+                        sender: value.id,
+                      },
+                    });
                   }}
                 />
               </div>
@@ -195,6 +186,15 @@ export const TransferCurrencyDialog: FC<ITransferCurrencyDialogProps> = ({
                   fullWidth
                   label="Receiver"
                   value={bindingModel.options.receiver}
+                  onChange={(event: any) => {
+                    setBindingModel({
+                      ...bindingModel,
+                      options: {
+                        ...bindingModel.options,
+                        receiver: event.target.value,
+                      },
+                    });
+                  }}
                 />
               </div>
 
@@ -203,12 +203,30 @@ export const TransferCurrencyDialog: FC<ITransferCurrencyDialogProps> = ({
                   fullWidth
                   label="Amount"
                   value={bindingModel.options.amount}
+                  onChange={(event: any) => {
+                    setBindingModel({
+                      ...bindingModel,
+                      options: {
+                        ...bindingModel.options,
+                        amount: event.target.value,
+                      },
+                    });
+                  }}
                 />
               </div>
             </Grid>
 
             <Grid item xs={12} sm={12}>
-              transaction preview...
+              <TransactionPreviewSendCurrency
+                sender={selectedSender}
+                envelope={{
+                  ...selectedCurrency,
+                  amount: bindingModel.options.amount,
+                }}
+                receiver={{
+                  id: bindingModel.options.receiver,
+                }}
+              />
             </Grid>
           </Grid>
         </div>
