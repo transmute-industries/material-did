@@ -1,11 +1,9 @@
 import React, { FC, HTMLAttributes } from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
-import _ from 'lodash';
-import moment from 'moment';
 
 import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
+
 import VideogameAssetIcon from '@material-ui/icons/VideogameAsset';
 import StyleIcon from '@material-ui/icons/Style';
 import Avatar from '@material-ui/core/Avatar';

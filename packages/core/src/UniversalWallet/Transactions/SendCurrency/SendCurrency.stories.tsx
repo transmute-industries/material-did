@@ -5,12 +5,12 @@ import {
   ITransactionPreviewSendCurrencyProps,
 } from '.';
 
+import { EthereumAddress, Profile, Currency } from '../../fixtures';
+
 export default {
   title: 'Components|Universal Wallet.Transactions',
   component: TransactionPreviewSendCurrency,
 };
-
-import { EthereumAddress, Profile, Currency } from '../../fixtures';
 
 const args = {
   sender: EthereumAddress,

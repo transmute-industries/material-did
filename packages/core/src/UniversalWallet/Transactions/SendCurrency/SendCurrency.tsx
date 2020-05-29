@@ -8,30 +8,30 @@ import CardContent from '@material-ui/core/CardContent';
 import PermIdentityIcon from '@material-ui/icons/PermIdentity';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 
-import { makeStyles } from '@material-ui/core/styles';
+// import { makeStyles } from '@material-ui/core/styles';
 import { LinkedDataIdentifier } from '../../../Common/LinkedDataIdentifier';
 import { TripleCard } from '../TripleCard';
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1,
-    // backgroundColor: '#f5f5f5',
-  },
-  media: {
-    height: 256,
-  },
-  listRoot: {
-    width: '100%',
-    backgroundColor: theme.palette.background.paper,
-  },
-  pink: {
-    color: theme.palette.getContrastText(theme.palette.primary.main),
-    backgroundColor: theme.palette.primary.main,
-  },
-  avatar: {
-    backgroundColor: theme.palette.primary.main,
-  },
-}));
+// const useStyles = makeStyles(theme => ({
+//   root: {
+//     flexGrow: 1,
+//     // backgroundColor: '#f5f5f5',
+//   },
+//   media: {
+//     height: 256,
+//   },
+//   listRoot: {
+//     width: '100%',
+//     backgroundColor: theme.palette.background.paper,
+//   },
+//   pink: {
+//     color: theme.palette.getContrastText(theme.palette.primary.main),
+//     backgroundColor: theme.palette.primary.main,
+//   },
+//   avatar: {
+//     backgroundColor: theme.palette.primary.main,
+//   },
+// }));
 
 export interface ITransactionPreviewSendCurrencyProps
   extends HTMLAttributes<HTMLDivElement> {
@@ -46,7 +46,7 @@ export const TransactionPreviewSendCurrency: FC<ITransactionPreviewSendCurrencyP
   envelope,
   receiver,
 }) => {
-  const classes = useStyles();
+  // const classes = useStyles();
   return (
     <Paper
       style={{
