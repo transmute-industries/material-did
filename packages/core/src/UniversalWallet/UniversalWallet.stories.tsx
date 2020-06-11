@@ -65,11 +65,16 @@ const Default = (props: any) => {
     return wallet.export();
   };
 
-  const generateWallet = async () => {
+  const generateWallet = async (seed?: any) => {
     console.log('generateWallet');
-    const password = 'storybook';
-    const seed = await UniversalWallet2020.passwordToSeed(password);
-    let wallet = await UniversalWallet2020.generate(seed);
+
+    let _seed = seed;
+    if (!seed) {
+      const password = 'storybook';
+      _seed = await UniversalWallet2020.passwordToSeed(password);
+    }
+
+    let wallet = await UniversalWallet2020.generate(_seed);
     setWalletState({
       status: wallet.status,
       contents: wallet.contents,

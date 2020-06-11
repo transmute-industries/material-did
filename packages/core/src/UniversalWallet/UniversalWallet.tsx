@@ -25,6 +25,8 @@ import {
 import { InterfaceMenu } from './InterfaceMenu';
 import { SearchDialog } from './SearchDialog';
 
+import { GenerateContentsDialog } from './Interface/Generate/GenerateContentsDialog';
+
 import { getWalletStateContext, download } from './help';
 
 const useStyles = makeStyles(theme => ({
@@ -188,14 +190,15 @@ export const UniversalWallet: FC<IUniversalWallet> = ({
             Import
           </Button>
 
-          <Button
-            onClick={() => {
-              generateWallet();
+          <GenerateContentsDialog
+            component={Button}
+            componentProps={{
+              endIcon: <WalletStateStatusIcon status={'create'} />,
             }}
-            endIcon={<WalletStateStatusIcon status={'create'} />}
-          >
-            Create
-          </Button>
+            onSubmit={({ seed }: any) => {
+              generateWallet(Buffer.from(seed, 'hex'));
+            }}
+          />
         </CardActions>
       )}
       {status !== 'empty' && (
