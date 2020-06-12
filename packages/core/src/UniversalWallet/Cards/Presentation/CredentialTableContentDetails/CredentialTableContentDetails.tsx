@@ -7,14 +7,11 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import { JSONEditor } from '../Common/JSONEditor';
-import { LinkedDataPropertyTable } from '../Common/LinkedDataPropertyTable';
-import {
-  ContentCard,
-  CurrencyCard,
-  PresentationCard,
-  CredentialCard,
-} from './Cards';
+import { JSONEditor } from '../../../../Common/JSONEditor';
+import { LinkedDataPropertyTable } from '../../../../Common/LinkedDataPropertyTable';
+
+import { ContentCard } from '../../../Cards/Content';
+import { CredentialCard } from '../../../Cards/Credential';
 
 function TabPanel(props: any) {
   const { children, value, index, ...other } = props;
@@ -53,35 +50,29 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const ContentSwitch: FC<IWalletContentDetailsProps> = ({ document }) => {
+const ContentSwitch: FC<ICredentialTableContentDetailsProps> = ({
+  document,
+}) => {
   if (
     Array.isArray(document.type) &&
     document.type[0] === 'VerifiableCredential'
   ) {
     return <CredentialCard content={document} />;
   }
-  if (
-    Array.isArray(document.type) &&
-    document.type[0] === 'VerifiablePresentation'
-  ) {
-    return <PresentationCard content={document} />;
-  }
+  // Maybe in the future, presentations customize ui for certain credentials
   switch (document.type) {
-    case 'Currency':
-      return <CurrencyCard content={document} />;
-
     default: {
       return <ContentCard content={document} />;
     }
   }
 };
 
-export interface IWalletContentDetailsProps
+export interface ICredentialTableContentDetailsProps
   extends HTMLAttributes<HTMLDivElement> {
   document: any;
 }
 
-export const WalletContentDetails: FC<IWalletContentDetailsProps> = ({
+export const CredentialTableContentDetails: FC<ICredentialTableContentDetailsProps> = ({
   document,
 }) => {
   const classes = useStyles();

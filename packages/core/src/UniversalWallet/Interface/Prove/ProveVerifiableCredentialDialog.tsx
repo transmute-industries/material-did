@@ -16,7 +16,7 @@ import Slide from '@material-ui/core/Slide';
 import { SelectWalletContent } from '../../SelectWalletContent';
 import { SelectMultipleWalletContent } from '../../SelectMultipleWalletContent';
 import { getSigningKeys, getVerifiableCredentials } from '../walletHelper';
-import { ContentsTable } from '../../ContentsTable';
+import { CredentialsTable } from '../../Cards/Presentation/CredentialsTable';
 const useStyles = makeStyles(theme => ({
   appBar: {
     position: 'relative',
@@ -211,11 +211,9 @@ export const ProveVerifiableCredentialDialog: FC<IProveVerifiableCredentialDialo
             </Grid>
 
             <Grid item xs={12} sm={12}>
-              <ContentsTable
+              <CredentialsTable
                 label={'Credentials'}
-                walletState={{
-                  contents: selectedVerifiableCredentials,
-                }}
+                credentials={selectedVerifiableCredentials}
               />
             </Grid>
           </Grid>

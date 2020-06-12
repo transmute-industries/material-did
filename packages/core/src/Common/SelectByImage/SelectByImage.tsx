@@ -90,7 +90,7 @@ export const SelectByImage = ({ label, value, options, onChange }: any) => {
         //   {/*  */}
         // </div>
       )}
-      onChange={(event: any, vendor: any) => {
+      onChange={(_event: any, vendor: any) => {
         // console.log(vendor)
         if (vendor) {
           setState({

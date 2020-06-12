@@ -3,10 +3,10 @@ import MaterialTable from 'material-table';
 
 import { LinkedDataIdentifier } from '../../Common';
 
-import { WalletContentDetails } from '../WalletContentDetails';
+import { WalletContentsTableDetails } from './WalletContentsTableDetails';
 
 // TODO: fix walletState so it does not get mutated params...
-export const ContentsTable = ({ label, walletState }: any) => {
+export const WalletContentsTable = ({ label, walletState }: any) => {
   const [rows, setRows] = React.useState([]);
 
   React.useEffect(() => {
@@ -41,7 +41,7 @@ export const ContentsTable = ({ label, walletState }: any) => {
       detailPanel={(rowData: any) => {
         const withoutMutation: any = { ...rowData };
         delete withoutMutation.tableData;
-        return <WalletContentDetails document={withoutMutation} />;
+        return <WalletContentsTableDetails document={withoutMutation} />;
       }}
     />
   );

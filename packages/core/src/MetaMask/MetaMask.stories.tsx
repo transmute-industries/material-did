@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography';
 
 import { getWalletContents, sendETH } from './help';
 
-import { ContentsTable } from '../UniversalWallet/ContentsTable';
+import { WalletContentsTable } from '../UniversalWallet/WalletContentsTable';
 import { TransferCurrencyDialog } from '../UniversalWallet/Interface/Transfer';
 
 export default {
@@ -82,7 +82,7 @@ export const Demo = () => {
       </div>
 
       {!!walletState.contents.length && (
-        <ContentsTable walletState={walletState} />
+        <WalletContentsTable walletState={walletState} />
       )}
     </div>
   );

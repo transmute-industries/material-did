@@ -2,8 +2,6 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 import { GenerateContentsDialog, IGenerateContentsDialogProps } from '.';
 
-import { unlockedContents } from '../../fixtures';
-
 export default {
   title: 'Components|Universal Wallet.Interface',
   component: GenerateContentsDialog,

@@ -10,7 +10,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import Slide from '@material-ui/core/Slide';
 import Search from '@material-ui/icons/Search';
 
-import { ContentsTable } from './ContentsTable';
+import { WalletContentsTable } from './WalletContentsTable';
 
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -70,7 +70,7 @@ export const SearchDialog = ({ walletState }: any) => {
             </Button>
           </Toolbar>
         </AppBar>
-        <ContentsTable walletState={walletState} />
+        <WalletContentsTable walletState={walletState} />
       </Dialog>
     </div>
   );

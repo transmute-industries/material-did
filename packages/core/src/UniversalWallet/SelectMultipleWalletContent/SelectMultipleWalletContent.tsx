@@ -10,6 +10,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
 import { LinkedDataIdentifier } from '../../Common/LinkedDataIdentifier';
+import _ from 'lodash';
 
 const useStyles = makeStyles(theme => ({
   formControl: {
@@ -116,9 +117,12 @@ export const SelectMultipleWalletContent = ({
                   }}
                 />
                 <Typography style={{ paddingTop: '4px' }}>
-                  {option.name || Array.isArray(option.type)
-                    ? option.type[1]
-                    : option.type}
+                  {option.name ||
+                    _.startCase(
+                      Array.isArray(option.type)
+                        ? option.type[option.type.length - 1]
+                        : option.type
+                    )}
                 </Typography>
               </Box>
               <Box style={{ paddingTop: '4px' }}>

@@ -13,9 +13,11 @@ import ContactMailIcon from '@material-ui/icons/ContactMail';
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
 import DescriptionIcon from '@material-ui/icons/Description';
+
 import { LinkedDataIdentifier } from '../../../Common/LinkedDataIdentifier';
-import { ContentsTable } from '../../ContentsTable';
 import { ExpansionPanelList } from '../../../Common/ExpansionPanelList';
+import { CredentialsTable } from './CredentialsTable';
+
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -128,11 +130,9 @@ export const PresentationCard: FC<IPresentationCardProps> = ({ content }) => {
       ),
       disabled: false,
       children: (
-        <ContentsTable
+        <CredentialsTable
           label={'Credentials'}
-          walletState={{
-            contents: JSON.parse(JSON.stringify(content.verifiableCredential)),
-          }}
+          credentials={JSON.parse(JSON.stringify(content.verifiableCredential))}
         />
       ),
     },

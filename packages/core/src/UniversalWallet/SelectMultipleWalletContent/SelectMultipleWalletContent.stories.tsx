@@ -11,7 +11,9 @@ export default {
   component: SelectMultipleWalletContent,
 };
 
-const options = unlockedContents;
+const options = unlockedContents.filter((v: any) => {
+  return v.id !== undefined;
+});
 
 const value = options[0];
 
@@ -27,7 +29,7 @@ export const SelectMultiple = (
   <div>
     <SelectMultipleWalletContent
       label={label}
-      value={value}
+      value={[value]}
       options={options}
       onChange={onChange}
       {...props}
