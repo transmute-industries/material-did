@@ -56,8 +56,9 @@
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
-    "@material-ui/core": "^4.9.13",
+    "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "^4.0.0-alpha.54",
     "@storybook/addon-actions": "^5.3.18",
     "@storybook/addon-console": "^1.2.1",
     "@storybook/addon-docs": "^5.3.18",
@@ -86,7 +87,9 @@
     "tsdx": "^0.13.2",
     "tslib": "^1.11.1",
     "typescript": "^3.8.3",
-    "web3": "^1.2.8",
-    "@material-ui/lab": "^4.0.0-alpha.54"
+    "web3": "^1.2.8"
+  },
+  "dependencies": {
+    "multihashes": "^1.0.1"
   }
 }

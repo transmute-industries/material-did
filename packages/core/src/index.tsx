@@ -5,3 +5,5 @@ export * from './DIDDocumentPreview';
 
 export * from './VerifiableCredentialPreview';
 export * from './UniversalWallet';
+
+export * from './Sidetree';
