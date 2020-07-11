@@ -1,5 +1,3 @@
-# Material DID
-
 [https://material-did.com](https://material-did.com)
 
 > Material UI for Decentralized Identifiers, Verifiable Credentials and Wallets.
@@ -19,6 +17,16 @@ npm run build
 
 ## Core
 
-See [./packages/core](./packages/core)
+The previous core module has been deprecated, please updrade.
 
-This module contains all components and stories.
+`@transmute/material-did-core` => `@material-did/core`
+
+This module contains all modules... its also very large.
+
+```
+npm i @material-did/core
+```
+
+## Modules
+
+See [./packages](./packages).
