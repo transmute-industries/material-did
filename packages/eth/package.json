@@ -2,7 +2,9 @@
   "name": "@material-did/eth",
   "author": "Orie Steele",
   "module": "dist/eth.esm.js",
-  "version": "0.2.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "license": "Apache-2.0",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -65,5 +67,5 @@
     "ethjs": "^0.4.0",
     "web3": "^1.2.9"
   },
-  "gitHead": "07d89ef73ca0fb1e3927b5aa4624ba9d98c8e0b3"
+  "gitHead": "8fbf70429d2c22a6621adb384eb58dfca308b5d0"
 }

@@ -2,8 +2,10 @@
   "name": "@material-did/sidetree",
   "author": "Orie Steele",
   "module": "dist/sidetree.esm.js",
-  "version": "0.2.0",
-  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "Apache-2.0",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
@@ -65,5 +67,5 @@
     "multihashes": "^1.0.1",
     "react-identicons": "^1.2.4"
   },
-  "gitHead": "07d89ef73ca0fb1e3927b5aa4624ba9d98c8e0b3"
+  "gitHead": "8fbf70429d2c22a6621adb384eb58dfca308b5d0"
 }
