@@ -2,7 +2,7 @@
   "name": "@material-did/core",
   "author": "Orie Steele",
   "module": "dist/core.esm.js",
-  "version": "0.2.0",
+  "version": "0.0.0",
   "publishConfig": {
     "access": "public"
   },
@@ -63,10 +63,10 @@
     "typescript": "^3.9.6"
   },
   "dependencies": {
-    "@material-did/common": "^0.2.0",
-    "@material-did/qr": "^0.2.0",
-    "@material-did/sidetree": "^0.2.0",
-    "@material-did/universal-wallet": "^0.2.0",
+    "@material-did/common": "^0.0.0",
+    "@material-did/qr": "^0.0.0",
+    "@material-did/sidetree": "^0.0.0",
+    "@material-did/universal-wallet": "^0.0.0",
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
     "@transmute/universal-wallet": "0.0.6"

@@ -2,6 +2,7 @@
   "name": "@material-did/universal-wallet",
   "author": "Orie Steele",
   "module": "dist/universal-wallet.esm.js",
+  "version": "0.0.0",
   "publishConfig": {
     "access": "public"
   },
@@ -25,7 +26,7 @@
     "build-storybook": "build-storybook"
   },
   "peerDependencies": {
-    "@material-did/common": "0.1.0",
+    "@material-did/common": "0.0.0",
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.56",
@@ -70,7 +71,7 @@
     "typescript": "^3.9.6"
   },
   "dependencies": {
-    "@material-did/common": "^0.2.0",
+    "@material-did/common": "^0.0.0",
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.56",
