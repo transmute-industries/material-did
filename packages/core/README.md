@@ -1,12 +1,3 @@
-# Material DID Core
+# @material-did/core
 
-Built using [tsdx](https://github.com/jaredpalmer/tsdx)
-
-```
-npm i
-npm run lint
-npm run test
-npm run storybook
-npm run storybook:build
-npm run storybook:deploy
-```
+This module contains all others, and its rather large.
