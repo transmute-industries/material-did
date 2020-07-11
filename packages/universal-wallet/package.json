@@ -6,6 +6,10 @@
   "publishConfig": {
     "access": "public"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/transmute-industries/material-did"
+  },
   "license": "Apache-2.0",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -26,7 +30,7 @@
     "build-storybook": "build-storybook"
   },
   "peerDependencies": {
-    "@material-did/common": "0.0.0",
+    "@material-did/common": "0.0.0-alpha",
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.56",

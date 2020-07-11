@@ -6,6 +6,10 @@
   "publishConfig": {
     "access": "public"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/transmute-industries/material-did"
+  },
   "license": "Apache-2.0",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -52,6 +56,7 @@
     "@types/react": "^16.9.42",
     "@types/react-dom": "^16.9.8",
     "babel-loader": "^8.1.0",
+    "ethjs": "^0.4.0",
     "husky": "^4.2.5",
     "react": "^16.13.1",
     "react-docgen-typescript-loader": "^3.7.2",
@@ -60,7 +65,8 @@
     "ts-loader": "^8.0.0",
     "tsdx": "^0.13.2",
     "tslib": "^2.0.0",
-    "typescript": "^3.9.6"
+    "typescript": "^3.9.6",
+    "web3": "^1.2.9"
   },
   "dependencies": {
     "@material-did/common": "^0.0.0-alpha",
@@ -69,7 +75,13 @@
     "@material-did/universal-wallet": "^0.0.0-alpha",
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
-    "@transmute/universal-wallet": "0.0.6"
+    "@material-ui/lab": "^4.0.0-alpha.56",
+    "@transmute/universal-wallet": "0.0.6",
+    "flat": "^5.0.0",
+    "lodash-es": "^4.17.15",
+    "material-table": "^1.64.0",
+    "moment": "^2.27.0",
+    "qrcode.react": "^1.0.0"
   },
   "gitHead": "8fbf70429d2c22a6621adb384eb58dfca308b5d0"
 }
