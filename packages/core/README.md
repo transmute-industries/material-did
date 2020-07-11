@@ -1,7 +1,3 @@
-#
+# @material-did/core
 
-#### Peer Dependencies
-
-```
-npm i --save react-qr-reader lodash
-```
+This module contains all others, and its rather large.

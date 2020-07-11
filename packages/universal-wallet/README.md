@@ -1,4 +1,4 @@
-#
+# @material-did/universal-wallet
 
 #### Peer Dependencies
 

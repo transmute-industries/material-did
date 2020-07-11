@@ -1,1 +1,1 @@
-#
+# @material-did/sidetree

@@ -1,4 +1,6 @@
-#
+# @material-did/eth
+
+WIP not published, used for MetaMask demo only.
 
 #### Peer Dependencies
 

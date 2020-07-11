@@ -1,4 +1,4 @@
-#
+# @material-did/qr
 
 #### Peer Dependencies
 
