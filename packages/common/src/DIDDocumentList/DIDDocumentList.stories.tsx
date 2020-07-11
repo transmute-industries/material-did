@@ -1,11 +1,6 @@
 import React from 'react';
 import { DIDDocumentList, IDIDDocumentListProps } from '.';
 
-import {
-  // emptyList,
-  smallList,
-} from './fixtures';
-
 export default {
   // id: 20,
   title: 'DID/Document',

@@ -70,33 +70,6 @@ const X25519KeyAgreementKey2019 = {
   ],
 };
 
-const Credential = {
-  '@context': [
-    'https://www.w3.org/2018/credentials/v1',
-    'https://www.w3.org/2018/credentials/examples/v1',
-  ],
-  id: 'http://example.gov/credentials/0.6012887606574315',
-  type: ['VerifiableCredential', 'UniversityDegreeCredential'],
-  issuer: 'did:key:z6Mkn28V7Mk7TyvS82GH5CByFWgBeTbtUedc3HDvJz4bta5f',
-  issuanceDate: '2020-03-10T04:24:12.164Z',
-  credentialSubject: {
-    id: 'did:example:456',
-    degree: {
-      type: 'BachelorDegree',
-      name: 'Bachelor of Science and Arts',
-    },
-  },
-  proof: {
-    type: 'Ed25519Signature2018',
-    created: '2020-05-27T01:53:59Z',
-    jws:
-      'eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..yTwDh8nXoncrBWZYEmXLTaGcJh7L4y7PJ--FVjw8CpcAvfPNdv_jUTkRkjSFyjO6VMiE0isiiYw5nUClzXCmAg',
-    proofPurpose: 'assertionMethod',
-    verificationMethod:
-      'did:key:z6Mkn28V7Mk7TyvS82GH5CByFWgBeTbtUedc3HDvJz4bta5f#z6Mkn28V7Mk7TyvS82GH5CByFWgBeTbtUedc3HDvJz4bta5f',
-  },
-};
-
 const unlockedContents = [
   Entropy,
   Ed25519VerificationKey2018,
