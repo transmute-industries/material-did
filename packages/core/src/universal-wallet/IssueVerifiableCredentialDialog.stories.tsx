@@ -1,13 +1,13 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import {
-  ProveVerifiableCredentialDialog,
-  IProveVerifiableCredentialDialogProps,
-} from '.';
+  IssueVerifiableCredentialDialog,
+  IIssueVerifiableCredentialDialogProps,
+} from '..';
 
 export default {
   title: 'Universal Wallet/Interface/Credentials',
-  component: ProveVerifiableCredentialDialog,
+  component: IssueVerifiableCredentialDialog,
 };
 
 const Entropy = {
@@ -101,22 +101,22 @@ const unlockedContents = [
   Entropy,
   Ed25519VerificationKey2018,
   X25519KeyAgreementKey2019,
-  Credential,
 ];
+
 const walletState = {
   status: 'UNLOCKED',
   contents: unlockedContents,
 };
 
-export const Prove = (
-  props?: Partial<IProveVerifiableCredentialDialogProps>
+export const Issue = (
+  props?: Partial<IIssueVerifiableCredentialDialogProps>
 ) => {
   const onSubmit = (data: any) => {
-    console.log('onSubmit: ', data);
+    console.log(data);
   };
   return (
     <div>
-      <ProveVerifiableCredentialDialog
+      <IssueVerifiableCredentialDialog
         walletState={walletState}
         component={Button}
         componentProps={{

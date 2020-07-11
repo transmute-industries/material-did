@@ -1,13 +1,13 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
-import { QRCodeScannerDialog, IQRCodeScannerDialogProps } from '.';
+import { QRCodeScannerDialog, IQRCodeScannerDialogProps } from '..';
 
 export default {
-  title: 'Common|QR Code Scanner',
+  title: 'QR/Reader',
   component: QRCodeScannerDialog,
 };
 
-export const QRCodeScanner = (props?: Partial<IQRCodeScannerDialogProps>) => {
+export const Dialog = (props?: Partial<IQRCodeScannerDialogProps>) => {
   const [state, setState] = React.useState({
     open: false,
   });

@@ -1,3 +1,4 @@
+import '@storybook/addon-console';
 import { addParameters } from '@storybook/react';
 
 addParameters({

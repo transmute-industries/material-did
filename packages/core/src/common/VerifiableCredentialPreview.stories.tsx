@@ -1,5 +1,16 @@
-export const emptyList = [];
-export const smallList = [
+import React from 'react';
+import {
+  VerifiableCredentialPreview,
+  IVerifiableCredentialPreviewProps,
+} from '..';
+
+export default {
+  // id: 20,
+  title: 'VC/Credential',
+  component: VerifiableCredentialPreview,
+};
+
+const smallList = [
   {
     '@context': [
       'https://www.w3.org/2018/credentials/v1',
@@ -39,3 +50,9 @@ export const smallList = [
     },
   },
 ];
+
+export const Preview = (props?: Partial<IVerifiableCredentialPreviewProps>) => (
+  <div>
+    <VerifiableCredentialPreview document={smallList[0]} {...props} />
+  </div>
+);

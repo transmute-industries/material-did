@@ -1,5 +1,5 @@
 import React from 'react';
-import { UniversalWallet } from '.';
+import { UniversalWallet } from '..';
 
 import { UniversalWallet2020 } from '@transmute/universal-wallet';
 

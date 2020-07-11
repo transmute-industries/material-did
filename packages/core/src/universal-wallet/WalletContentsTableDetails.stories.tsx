@@ -2,7 +2,7 @@ import React from 'react';
 import {
   WalletContentsTableDetails,
   IWalletContentsTableDetailsProps,
-} from './WalletContentsTableDetails';
+} from '..';
 
 export default {
   // id: 20,

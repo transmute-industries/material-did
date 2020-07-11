@@ -1,5 +1,40 @@
-export const emptyList = [];
-export const smallList = [
+import React from 'react';
+import { DIDDocumentList, IDIDDocumentListProps } from '..';
+
+export default {
+  // id: 20,
+  title: 'DID/Document',
+  component: DIDDocumentList,
+};
+
+const smallList = [
+  {
+    '@context': 'https://w3id.org/did/v1',
+    id: 'did:ethr:0xE6Fe788d8ca214A080b0f6aC7F48480b2AEfa9a6',
+    authentication: [
+      {
+        type: 'Secp256k1SignatureAuthentication2018',
+        publicKey: [
+          'did:ethr:0xE6Fe788d8ca214A080b0f6aC7F48480b2AEfa9a6#owner',
+        ],
+      },
+    ],
+    publicKey: [
+      {
+        id: 'did:ethr:0xE6Fe788d8ca214A080b0f6aC7F48480b2AEfa9a6#owner',
+        type: 'Secp256k1VerificationKey2018',
+        ethereumAddress: '0xe6fe788d8ca214a080b0f6ac7f48480b2aefa9a6',
+        owner: 'did:ethr:0xE6Fe788d8ca214A080b0f6aC7F48480b2AEfa9a6',
+      },
+      {
+        id: 'did:ethr:0xE6Fe788d8ca214A080b0f6aC7F48480b2AEfa9a6#delegate-1',
+        type: 'Secp256k1VerificationKey2018',
+        owner: 'did:ethr:0xE6Fe788d8ca214A080b0f6aC7F48480b2AEfa9a6',
+        publicKeyHex:
+          '0295dda1dca7f80e308ef60155ddeac00e46b797fd40ef407f422e88d2467a27eb',
+      },
+    ],
+  },
   {
     '@context': ['https://w3id.org/did/v0.11'],
     id: 'did:key:z6MkoNp7nJjs1ZSvbYsqTvSF5ZQb6pFeqhzD3MAM1m6x9DPD',
@@ -35,3 +70,9 @@ export const smallList = [
     ],
   },
 ];
+
+export const List = (props?: Partial<IDIDDocumentListProps>) => (
+  <div>
+    <DIDDocumentList list={smallList} {...props} />
+  </div>
+);

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { LinkedDataIdentifier, ILinkedDataIdentifierProps } from '.';
+import { LinkedDataIdentifier, ILinkedDataIdentifierProps } from '..';
 
 const largeList = [
   'did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg',

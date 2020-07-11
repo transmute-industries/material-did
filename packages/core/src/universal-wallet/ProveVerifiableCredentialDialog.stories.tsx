@@ -3,7 +3,7 @@ import Button from '@material-ui/core/Button';
 import {
   ProveVerifiableCredentialDialog,
   IProveVerifiableCredentialDialogProps,
-} from '.';
+} from '..';
 
 export default {
   title: 'Universal Wallet/Interface/Credentials',

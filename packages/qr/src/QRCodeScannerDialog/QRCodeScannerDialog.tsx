@@ -1,5 +1,5 @@
 import React, { FC, HTMLAttributes } from 'react';
-import _ from 'lodash';
+import { throttle } from 'lodash-es';
 import QrReader from 'react-qr-reader';
 import Button from '@material-ui/core/Button';
 
@@ -13,7 +13,7 @@ import { JSONEditor } from '@material-did/common';
 
 let context = new AudioContext();
 
-const beep = _.throttle((freq = 300, duration = 200, vol = 50) => {
+const beep = throttle((freq = 300, duration = 200, vol = 50) => {
   const oscillator = context.createOscillator();
   const gain = context.createGain();
   oscillator.connect(gain);

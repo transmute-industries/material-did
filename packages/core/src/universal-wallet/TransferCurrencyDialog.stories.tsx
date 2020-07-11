@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
-import { TransferCurrencyDialog, ITransferCurrencyDialogProps } from '.';
+import { TransferCurrencyDialog, ITransferCurrencyDialogProps } from '..';
 
 export default {
   title: 'Universal Wallet/Interface/Currency',
