@@ -71,5 +71,6 @@
     "qrcode.react": "^1.0.0",
     "react-ace": "^6.3.2",
     "react-identicons": "^1.2.4"
-  }
+  },
+  "gitHead": "07d89ef73ca0fb1e3927b5aa4624ba9d98c8e0b3"
 }

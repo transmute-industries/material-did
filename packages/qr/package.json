@@ -64,5 +64,6 @@
     "@material-ui/icons": "^4.9.1",
     "lodash-es": "^4.17.15",
     "react-qr-reader": "^2.2.1"
-  }
+  },
+  "gitHead": "07d89ef73ca0fb1e3927b5aa4624ba9d98c8e0b3"
 }

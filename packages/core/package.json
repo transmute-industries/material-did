@@ -67,5 +67,6 @@
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
     "@transmute/universal-wallet": "0.0.6"
-  }
+  },
+  "gitHead": "07d89ef73ca0fb1e3927b5aa4624ba9d98c8e0b3"
 }

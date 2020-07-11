@@ -79,5 +79,6 @@
     "material-table": "^1.64.0",
     "moment": "^2.27.0",
     "qrcode.react": "^1.0.0"
-  }
+  },
+  "gitHead": "07d89ef73ca0fb1e3927b5aa4624ba9d98c8e0b3"
 }

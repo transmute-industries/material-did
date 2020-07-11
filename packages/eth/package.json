@@ -64,5 +64,6 @@
     "@material-ui/icons": "^4.9.1",
     "ethjs": "^0.4.0",
     "web3": "^1.2.9"
-  }
+  },
+  "gitHead": "07d89ef73ca0fb1e3927b5aa4624ba9d98c8e0b3"
 }
