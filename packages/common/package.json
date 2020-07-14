@@ -21,8 +21,7 @@
     "node": ">=10"
   },
   "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
+    "build": "rm -rf dist && tsc --outDir dist/esm",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint src --fix",
     "prepare": "tsdx build",
