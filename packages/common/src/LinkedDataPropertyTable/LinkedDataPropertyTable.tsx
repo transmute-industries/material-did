@@ -9,11 +9,15 @@ import Typography from '@material-ui/core/Typography';
 
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
 
-import { flatten } from 'flat';
-import jsonld from 'jsonld';
+// import { flatten } from 'flat';
+// import jsonld from 'jsonld';
 
 import { JSONEditor } from '../JSONEditor';
-import { LinkedDataIdentifier } from '../LinkedDataIdentifier';
+// import { LinkedDataIdentifier } from '../LinkedDataIdentifier';
+
+const flatten: any = () => {};
+const jsonld: any = {};
+const LinkedDataIdentifier: any = React.Fragment;
 
 export interface ILinkedDataPropertyTableProps
   extends HTMLAttributes<HTMLDivElement> {
