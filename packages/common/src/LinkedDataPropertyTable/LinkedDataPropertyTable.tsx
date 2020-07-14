@@ -6,13 +6,14 @@ import IconButton from '@material-ui/core/IconButton';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
-
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
+import { JSONEditor } from '../JSONEditor';
+
+console.log(MaterialTable, AppBar, Toolbar, IconButton, CloudDownloadIcon, JSONEditor);
+console.log(LinearProgress, Link, Typography);
 
 // import { flatten } from 'flat';
 // import jsonld from 'jsonld';
-
-import { JSONEditor } from '../JSONEditor';
 // import { LinkedDataIdentifier } from '../LinkedDataIdentifier';
 
 const flatten: any = () => {};
@@ -35,6 +36,7 @@ export const LinkedDataPropertyTable = ({
     vocabTerms: {},
     render: false,
   });
+  console.log(LinkedDataIdentifier, onTitleClick, onRowExport, state);
 
   React.useEffect(() => {
     const doAsync = async () => {
@@ -90,131 +92,134 @@ export const LinkedDataPropertyTable = ({
     };
   });
 
-  const columns: any = [
-    {
-      title: 'Property',
-      field: 'key',
-      render: (rowData: any) => {
-        let jsonPath = `$.${rowData.key}`;
-        if (rowData.key.indexOf('@context.') !== -1) {
-          jsonPath = jsonPath.replace('.@context.', '["@context"].');
-        }
-        return (
-          <Typography style={{ wordBreak: 'break-all' }}>{jsonPath}</Typography>
-        );
-      },
-    },
-    {
-      title: 'Value',
-      field: 'value',
-      render: (rowData: any) => {
-        let value = rowData.value;
+  console.log(rows);
+  // const columns: any = [
+  //   {
+  //     title: 'Property',
+  //     field: 'key',
+  //     render: (rowData: any) => {
+  //       let jsonPath = `$.${rowData.key}`;
+  //       if (rowData.key.indexOf('@context.') !== -1) {
+  //         jsonPath = jsonPath.replace('.@context.', '["@context"].');
+  //       }
+  //       return (
+  //         <Typography style={{ wordBreak: 'break-all' }}>{jsonPath}</Typography>
+  //       );
+  //     },
+  //   },
+  //   {
+  //     title: 'Value',
+  //     field: 'value',
+  //     render: (rowData: any) => {
+  //       let value = rowData.value;
 
-        if (rowData.value.indexOf('http') !== -1) {
-          value = (
-            <LinkedDataIdentifier
-              value={value}
-              onClick={() => {
-                if (Array.isArray(rowData.value)) {
-                  window.open(rowData.value[0]);
-                } else {
-                  window.open(rowData.value);
-                }
-              }}
-            />
-          );
-        }
-        if (rowData.value.indexOf('did:') !== -1) {
-          let url = `https://uniresolver.io/#${rowData.value}`;
-          value = (
-            <LinkedDataIdentifier
-              value={value}
-              onClick={() => {
-                window.open(url);
-              }}
-            />
-          );
-        }
+  //       if (rowData.value.indexOf('http') !== -1) {
+  //         value = (
+  //           <LinkedDataIdentifier
+  //             value={value}
+  //             onClick={() => {
+  //               if (Array.isArray(rowData.value)) {
+  //                 window.open(rowData.value[0]);
+  //               } else {
+  //                 window.open(rowData.value);
+  //               }
+  //             }}
+  //           />
+  //         );
+  //       }
+  //       if (rowData.value.indexOf('did:') !== -1) {
+  //         let url = `https://uniresolver.io/#${rowData.value}`;
+  //         value = (
+  //           <LinkedDataIdentifier
+  //             value={value}
+  //             onClick={() => {
+  //               window.open(url);
+  //             }}
+  //           />
+  //         );
+  //       }
 
-        if (rowData.value.indexOf('urn:') !== -1) {
-          value = <LinkedDataIdentifier value={rowData.value} />;
-        }
+  //       if (rowData.value.indexOf('urn:') !== -1) {
+  //         value = <LinkedDataIdentifier value={rowData.value} />;
+  //       }
 
-        if (state.vocabTerms[rowData.value]) {
-          value = (
-            <Link target="_blank" href={state.vocabTerms[rowData.value]}>
-              {value}
-            </Link>
-          );
-        }
-        return <span style={{ wordBreak: 'break-all' }}>{value}</span>;
-      },
-    },
-  ];
+  //       if (state.vocabTerms[rowData.value]) {
+  //         value = (
+  //           <Link target="_blank" href={state.vocabTerms[rowData.value]}>
+  //             {value}
+  //           </Link>
+  //         );
+  //       }
+  //       return <span style={{ wordBreak: 'break-all' }}>{value}</span>;
+  //     },
+  //   },
+  // ];
 
-  if (!state.render) {
-    return <LinearProgress />;
-  }
+  // if (!state.render) {
+  //   return <LinearProgress />;
+  // }
 
-  let title = (
-    <LinkedDataIdentifier value={document.id} onClick={onTitleClick} />
-  );
+  // let title = (
+  //   <LinkedDataIdentifier value={document.id} onClick={onTitleClick} />
+  // );
 
-  if (!document.id && document.proof) {
-    title = (
-      <LinkedDataIdentifier
-        value={document.proof.challenge}
-        onClick={onTitleClick}
-      />
-    );
-  }
-  return (
-    <MaterialTable
-      title={title}
-      columns={columns}
-      data={rows}
-      localization={{
-        body: {
-          emptyDataSourceMessage: 'Document is not valid.',
-        },
-      }}
-      options={{
-        exportFileName: document.id,
-        exportButton: true,
-      }}
-      detailPanel={(rowData: any) => {
-        let target = rowData.key.split('.').shift();
-        let parent = document[target];
-        if (Array.isArray(parent) && parent.length === 1) {
-          parent = parent[0];
-        }
-        const withoutMutation: any = { ...rowData, parent };
-        delete withoutMutation.tableData;
-        return (
-          <div>
-            <AppBar position={'relative'}>
-              <Toolbar variant={'dense'}>
-                <Typography variant="h6" style={{ flexGrow: 1 }}>
-                  Preview
-                </Typography>
-                {onRowExport && (
-                  <IconButton
-                    aria-label="Export"
-                    edge="end"
-                    color="inherit"
-                    onClick={() => {
-                      onRowExport(withoutMutation);
-                    }}
-                  >
-                    <CloudDownloadIcon />
-                  </IconButton>
-                )}
-              </Toolbar>
-            </AppBar>
-            <JSONEditor value={JSON.stringify(withoutMutation, null, 2)} />
-          </div>
-        );
-      }}
-    />
-  );
+  // if (!document.id && document.proof) {
+  //   title = (
+  //     <LinkedDataIdentifier
+  //       value={document.proof.challenge}
+  //       onClick={onTitleClick}
+  //     />
+  //   );
+  // }
+  // console.log(title, rows, columns, onRowExport);
+  return <></>;
+  // return (
+  //   <MaterialTable
+  //     title={title}
+  //     columns={columns}
+  //     data={rows}
+  //     localization={{
+  //       body: {
+  //         emptyDataSourceMessage: 'Document is not valid.',
+  //       },
+  //     }}
+  //     options={{
+  //       exportFileName: document.id,
+  //       exportButton: true,
+  //     }}
+  //     detailPanel={(rowData: any) => {
+  //       let target = rowData.key.split('.').shift();
+  //       let parent = document[target];
+  //       if (Array.isArray(parent) && parent.length === 1) {
+  //         parent = parent[0];
+  //       }
+  //       const withoutMutation: any = { ...rowData, parent };
+  //       delete withoutMutation.tableData;
+  //       return (
+  //         <div>
+  //           <AppBar position={'relative'}>
+  //             <Toolbar variant={'dense'}>
+  //               <Typography variant="h6" style={{ flexGrow: 1 }}>
+  //                 Preview
+  //               </Typography>
+  //               {onRowExport && (
+  //                 <IconButton
+  //                   aria-label="Export"
+  //                   edge="end"
+  //                   color="inherit"
+  //                   onClick={() => {
+  //                     onRowExport(withoutMutation);
+  //                   }}
+  //                 >
+  //                   <CloudDownloadIcon />
+  //                 </IconButton>
+  //               )}
+  //             </Toolbar>
+  //           </AppBar>
+  //           <JSONEditor value={JSON.stringify(withoutMutation, null, 2)} />
+  //         </div>
+  //       );
+  //     }}
+  //   />
+  // );
 };
