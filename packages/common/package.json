@@ -21,10 +21,10 @@
     "node": ">=10"
   },
   "scripts": {
-    "build": "rm -rf dist && tsc --outDir dist/esm",
+    "build": "rm -rf es && tsc --outDir es",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint src --fix",
-    "prepare": "tsdx build",
+    "prepare": "npm run build",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
