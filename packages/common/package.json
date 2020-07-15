@@ -21,7 +21,7 @@
     "node": ">=10"
   },
   "scripts": {
-    "build": "rm -rf dist && tsc --outDir dist",
+    "build": "rm -rf dist && tsc",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint src --fix",
     "prepare": "npm run build",
