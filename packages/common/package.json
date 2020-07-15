@@ -44,6 +44,11 @@
   },
   "devDependencies": {
     "@babel/core": "^7.10.4",
+    "@rollup/plugin-babel": "^5.1.0",
+    "@rollup/plugin-commonjs": "^14.0.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^8.4.0",
+    "@rollup/plugin-typescript": "^5.0.2",
     "@storybook/addon-actions": "^5.3.19",
     "@storybook/addon-docs": "^5.3.19",
     "@storybook/addon-info": "^5.3.19",
@@ -58,6 +63,7 @@
     "react-docgen-typescript-loader": "^3.7.2",
     "react-dom": "^16.13.1",
     "react-is": "^16.13.1",
+    "rollup-plugin-node-globals": "^1.4.0",
     "ts-loader": "^8.0.0",
     "tsdx": "^0.13.2",
     "tslib": "^2.0.0",
@@ -78,5 +84,6 @@
     "react-ace": "^6.3.2",
     "react-identicons": "^1.2.4"
   },
+  "sideEffect": false,
   "gitHead": "8fbf70429d2c22a6621adb384eb58dfca308b5d0"
 }
