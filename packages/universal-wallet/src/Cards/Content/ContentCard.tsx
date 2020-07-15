@@ -13,7 +13,9 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import TrackChangesIcon from '@material-ui/icons/TrackChanges';
 import StyleIcon from '@material-ui/icons/Style';
 import DescriptionIcon from '@material-ui/icons/Description';
-import { LinkedDataIdentifier, ExpansionPanelList } from '@material-did/common';
+// import { LinkedDataIdentifier, ExpansionPanelList } from '@material-did/common';
+import { LinkedDataIdentifier } from '@material-did/common/dist/LinkedDataIdentifier';
+import { ExpansionPanelList } from '@material-did/common/dist/ExpansionPanelList';
 
 const useStyles = makeStyles(theme => ({
   root: {

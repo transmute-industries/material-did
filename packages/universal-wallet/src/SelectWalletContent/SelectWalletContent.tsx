@@ -5,7 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import { Autocomplete } from '@material-ui/lab';
 import { makeStyles } from '@material-ui/core/styles';
 
-import { LinkedDataIdentifier } from '@material-did/common';
+import { LinkedDataIdentifier } from '@material-did/common/dist/LinkedDataIdentifier';
 import { Typography } from '@material-ui/core';
 
 const useStyles = makeStyles({

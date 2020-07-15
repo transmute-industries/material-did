@@ -9,7 +9,7 @@ import PermIdentityIcon from '@material-ui/icons/PermIdentity';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 
 // import { makeStyles } from '@material-ui/core/styles';
-import { LinkedDataIdentifier } from '@material-did/common';
+import { LinkedDataIdentifier } from '@material-did/common/dist/LinkedDataIdentifier';
 import { TripleCard } from '../TripleCard';
 
 // const useStyles = makeStyles(theme => ({

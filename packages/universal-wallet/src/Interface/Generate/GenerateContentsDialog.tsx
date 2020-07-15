@@ -11,7 +11,8 @@ import Slide from '@material-ui/core/Slide';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 
-import { LinkedDataIdentifier } from '@material-did/common';
+// import { LinkedDataIdentifier } from '@material-did/common';
+import { LinkedDataIdentifier } from '@material-did/common/dist/LinkedDataIdentifier';
 import { throttle } from 'lodash-es';
 
 import { UniversalWallet2020 } from '@transmute/universal-wallet';

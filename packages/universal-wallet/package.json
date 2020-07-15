@@ -22,10 +22,10 @@
   },
   "scripts": {
     "start": "tsdx watch",
-    "build": "tsdx build",
+    "build": "rm -rf dist && tsc",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint src --fix",
-    "prepare": "tsdx build",
+    "prepare": "npm run build",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },

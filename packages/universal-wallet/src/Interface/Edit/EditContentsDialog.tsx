@@ -10,7 +10,8 @@ import CloseIcon from '@material-ui/icons/Close';
 import Slide from '@material-ui/core/Slide';
 import MenuItem from '@material-ui/core/MenuItem';
 
-import { JSONEditor } from '@material-did/common';
+// import { JSONEditor } from '@material-did/common';
+import { JSONEditor } from '@material-did/common/dist/JSONEditor';
 
 const useStyles = makeStyles(theme => ({
   appBar: {

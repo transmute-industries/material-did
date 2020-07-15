@@ -13,7 +13,8 @@ import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
 import Slide from '@material-ui/core/Slide';
 
-import { JSONEditor } from '@material-did/common';
+// import { JSONEditor } from '@material-did/common';
+import { JSONEditor } from '@material-did/common/dist/JSONEditor';
 import { SelectWalletContent } from '../../SelectWalletContent';
 
 import { getSigningKeys, getDefaultCredential } from '../walletHelper';

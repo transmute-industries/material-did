@@ -1,7 +1,7 @@
 import React from 'react';
 import MaterialTable from 'material-table';
 
-import { LinkedDataIdentifier } from '@material-did/common';
+import { LinkedDataIdentifier } from '@material-did/common/dist/LinkedDataIdentifier';
 
 import { WalletContentsTableDetails } from './WalletContentsTableDetails';
 

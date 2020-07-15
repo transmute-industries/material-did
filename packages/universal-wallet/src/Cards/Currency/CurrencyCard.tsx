@@ -15,7 +15,9 @@ import ContactMailIcon from '@material-ui/icons/ContactMail';
 import TrackChangesIcon from '@material-ui/icons/TrackChanges';
 import AccountBalanceWalletIcon from '@material-ui/icons/AccountBalanceWallet';
 import DescriptionIcon from '@material-ui/icons/Description';
-import { LinkedDataIdentifier, ExpansionPanelList } from '@material-did/common';
+// import { LinkedDataIdentifier, ExpansionPanelList } from '@material-did/common';
+import { LinkedDataIdentifier } from '@material-did/common/dist/LinkedDataIdentifier';
+import { ExpansionPanelList } from '@material-did/common/dist/ExpansionPanelList';
 
 const useStyles = makeStyles(theme => ({
   root: {

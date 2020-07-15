@@ -17,7 +17,9 @@ import ContactMailIcon from '@material-ui/icons/ContactMail';
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
 import DescriptionIcon from '@material-ui/icons/Description';
-import { LinkedDataIdentifier, ExpansionPanelList } from '@material-did/common';
+// import { LinkedDataIdentifier, ExpansionPanelList } from '@material-did/common';
+import { LinkedDataIdentifier } from '@material-did/common/dist/LinkedDataIdentifier';
+import { ExpansionPanelList } from '@material-did/common/dist/ExpansionPanelList';
 
 const excludedCredentialSubjectProperties = ['image'];
 
