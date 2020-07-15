@@ -33,11 +33,6 @@
   "peerDependencies": {
     "react": ">=16"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint"
-    }
-  },
   "prettier": {
     "printWidth": 80,
     "semi": true,
@@ -58,7 +53,6 @@
     "babel-loader": "^8.1.0",
     "ethjs": "^0.4.0",
     "gh-pages": "^3.1.0",
-    "husky": "^4.2.5",
     "react": "^16.13.1",
     "react-docgen-typescript-loader": "^3.7.2",
     "react-dom": "^16.13.1",
