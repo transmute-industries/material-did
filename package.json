@@ -8,6 +8,9 @@
     "test:ci": "lerna run test:ci --stream",
     "build": "lerna run test --stream",
     "release": "lerna publish",
+    "publish:stable:patch": "lerna version patch",
+    "publish:stable:minor": "lerna version minor",
+    "publish:stable:major": "lerna version major",
     "publish:unstable": "lerna publish prerelease --preid unstable --yes",
     "deploy": "lerna run storybook:build --stream && lerna run storybook:deploy --stream",
     "shove": "git add -A; git commit -m 'chore(ci): test'; git push origin master"
