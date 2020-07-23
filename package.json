@@ -8,10 +8,23 @@
     "test:ci": "lerna run test:ci --stream",
     "build": "lerna run test --stream",
     "release": "lerna publish",
+    "publish:stable:patch": "lerna publish patch",
+    "publish:stable:minor": "lerna publish minor",
+    "publish:stable:major": "lerna publish major",
+    "publish:unstable": "lerna publish prerelease --preid unstable --yes",
     "deploy": "lerna run storybook:build --stream && lerna run storybook:deploy --stream",
     "shove": "git add -A; git commit -m 'chore(ci): test'; git push origin master"
   },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-push": "npm run lint"
+    }
+  },
   "devDependencies": {
+    "@commitlint/cli": "^9.1.1",
+    "@commitlint/config-conventional": "^9.1.1",
+    "husky": "^4.2.5",
     "lerna": "^3.20.2"
   },
   "dependencies": {}
