@@ -2,7 +2,7 @@
   "name": "@material-did/qr",
   "author": "Orie Steele",
   "module": "dist/qr.esm.js",
-  "version": "0.0.0-unstable.3",
+  "version": "0.0.0-unstable.4",
   "publishConfig": {
     "access": "public"
   },
@@ -61,7 +61,7 @@
   },
   "dependencies": {
     "@bloomprotocol/qr-react": "^2.0.0",
-    "@material-did/common": "^0.0.0-unstable.3",
+    "@material-did/common": "^0.0.0-unstable.4",
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
     "digital-link.js": "^1.1.0",
