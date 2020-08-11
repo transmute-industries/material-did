@@ -1,0 +1,43 @@
+import React from 'react';
+
+import { Operation, IOperationProps } from '..';
+
+export default {
+  title: 'Sidetree/Operations',
+  component: Operation,
+};
+
+const operations = [
+  {
+    didUniqueSuffix: 'EiAopY0yhhEQD0VdiWHanOcjJjBWmqDCUtmcGBVkQX7l5A',
+    type: 'create',
+    operationBuffer:
+      'eyJzdWZmaXhfZGF0YSI6ImV5SmtaV3gwWVY5b1lYTm9Jam9pUldsQlpIVkJaVlprWmxCUVRWQkRaMmcwYnpkalFVZGhaWEZDVmpONVQyVmFRelZ6V21jd2VtSkNRVXM0ZHlJc0luSmxZMjkyWlhKNVgyTnZiVzFwZEcxbGJuUWlPaUpGYVVKdlNuVnpjVlZaZVV0dmVtUklNMHhUVjBRMWFuWjFVbTlhY1ZreU9YWnpPRUpGUjFkUFJ6TXpNbFJuSW4wIiwidHlwZSI6ImNyZWF0ZSIsImRlbHRhIjoiZXlKMWNHUmhkR1ZmWTI5dGJXbDBiV1Z1ZENJNklrVnBRMUl5TmxORVgwOUhlWFJJWW1sV09XNXZVRkI0TkV0NFJWQnVhVGhqUkMxdWMydFBOblpQWTNaRVkxRWlMQ0p3WVhSamFHVnpJanBiZXlKaFkzUnBiMjRpT2lKeVpYQnNZV05sSWl3aVpHOWpkVzFsYm5RaU9uc2ljSFZpYkdsalgydGxlWE1pT2x0N0ltbGtJam9pYTJWNU1pSXNJblI1Y0dVaU9pSkZaREkxTlRFNVZtVnlhV1pwWTJGMGFXOXVTMlY1TWpBeE9DSXNJbXAzYXlJNmV5SmpjbllpT2lKRlpESTFOVEU1SWl3aWVDSTZJakJaYkhJMWRFeEdaSEJKYlROVVVrODBXRU5OTUd4eU5tcHhXbEpvWkMxNVRFUm9SbFY0V2s1c1dGRWlMQ0pyZEhraU9pSlBTMUFpTENKcmFXUWlPaUphYTNSWWRHVk5OblprVlhWTVNGWkNkRkpCTmxWSWMzQTNXamhLWTJ4c04zbE9WM2hDTVRGa2VrSTRJbjBzSW5CMWNuQnZjMlVpT2xzaVlYVjBhQ0lzSW1kbGJtVnlZV3dpWFgxZExDSnpaWEoyYVdObFgyVnVaSEJ2YVc1MGN5STZXM3NpYVdRaU9pSnpaWEoyYVdObFJXNWtjRzlwYm5SSlpERXlNeUlzSW5SNWNHVWlPaUp6YjIxbFZIbHdaU0lzSW1WdVpIQnZhVzUwSWpvaWFIUjBjSE02THk5M2QzY3VkWEpzTG1OdmJTSjlYWDE5WFgwIn0=',
+    transactionTime: 5,
+    transactionNumber: 0,
+    operationIndex: 0,
+    _id: '5f32e8f7d245722f337c9997',
+  },
+  {
+    didUniqueSuffix: 'EiAopY0yhhEQD0VdiWHanOcjJjBWmqDCUtmcGBVkQX7l5A',
+    type: 'update',
+    operationBuffer:
+      'eyJkaWRfc3VmZml4IjoiRWlBb3BZMHloaEVRRDBWZGlXSGFuT2NqSmpCV21xRENVdG1jR0JWa1FYN2w1QSIsInNpZ25lZF9kYXRhIjoiZXlKaGJHY2lPaUpGWkVSVFFTSjkuZXlKa1pXeDBZVjlvWVhOb0lqb2lSV2xDYm5GQlN6bG1ZVEJzVFdzMGExWlVZbVJ2Yms1bWVUWnBNazVtUVhJelNHeExhRmx2VFdWVVgySllVU0lzSW5Wd1pHRjBaVjlyWlhraU9uc2lZM0oySWpvaVJXUXlOVFV4T1NJc0ltdHBaQ0k2SWxwcmRGaDBaVTAyZG1SVmRVeElWa0owVWtFMlZVaHpjRGRhT0VwamJHdzNlVTVYZUVJeE1XUjZRamdpTENKcmRIa2lPaUpQUzFBaUxDSjRJam9pTUZsc2NqVjBURVprY0VsdE0xUlNUelJZUTAwd2JISTJhbkZhVW1oa0xYbE1SR2hHVlhoYVRteFlVU0o5ZlEuNzFjUnhxczk1V0Vra2RCMUdPMjdQU1BPbHdMcXE1djdpZ21FU3ZtZFV4NXdkZ3V3UEhkVE4xRmNqcnkyV2h4X29UTjA2U0ptMGpacGpvekNPVjR1RHciLCJ0eXBlIjoidXBkYXRlIiwiZGVsdGEiOiJleUp3WVhSamFHVnpJanBiZXlKaFkzUnBiMjRpT2lKaFpHUXRjSFZpYkdsakxXdGxlWE1pTENKd2RXSnNhV05mYTJWNWN5STZXM3NpYVdRaU9pSmhaR1JwZEdsdmJtRnNMV3RsZVNJc0luUjVjR1VpT2lKRlpESTFOVEU1Vm1WeWFXWnBZMkYwYVc5dVMyVjVNakF4T0NJc0ltcDNheUk2ZXlKamNuWWlPaUpGWkRJMU5URTVJaXdpZUNJNklubHhWbkowVm5oVGFYSlFaelppWkVSdWNXOXNSVmcwY0VOcVFpMDNlR1p5Ym14dmFVcGpaVUozUTAwaUxDSnJkSGtpT2lKUFMxQWlMQ0pyYVdRaU9pSnBjRlJ3Y0UxbmNsZDJjSFZTUjNoWGRsVnBSa3MyVVVKYWJUQnRZVEU1ZUhCelQwSk5hell3ZG1NMEluMHNJbkIxY25CdmMyVWlPbHNpWVhWMGFDSXNJbWRsYm1WeVlXd2lYWDFkZlYwc0luVndaR0YwWlY5amIyMXRhWFJ0Wlc1MElqb2lSV2xEZWpOWmQwRnRVM2xqUXpoVVNtc3hORWhJVkVaMFdFaFNRMjg1UjI1bGNEQjRWMGxwWm5BdGNWOHdkeUo5In0=',
+    transactionTime: 6,
+    transactionNumber: 1,
+    operationIndex: 0,
+    _id: '5f32e903d245722f337c999a',
+  },
+];
+
+const didMethodPrefix = 'elem:ropsten';
+
+export const _Operation = (props?: Partial<IOperationProps>) => (
+  <div style={{ padding: '8px' }}>
+    <Operation
+      didMethodPrefix={didMethodPrefix}
+      operation={operations[0]}
+      {...props}
+    />
+  </div>
+);

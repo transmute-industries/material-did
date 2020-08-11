@@ -8,19 +8,12 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
-import IconButton from '@material-ui/core/IconButton';
-import FingerprintIcon from '@material-ui/icons/Fingerprint';
-import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 
-import LinkIcon from '@material-ui/icons/Link';
+import ReceiptIcon from '@material-ui/icons/Receipt';
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1,
-    backgroundColor: '#f5f5f5',
-  },
   listRoot: {
-    width: '100%',
+    flexGrow: 1,
     wordBreak: 'break-all',
     backgroundColor: theme.palette.background.paper,
   },
@@ -30,32 +23,19 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export const LongFormPreview = ({ value }: any) => {
+export const TransactionPreviewHeader = ({ transaction }: any) => {
   const classes = useStyles();
-
   return (
     <List className={classes.listRoot}>
       <ListItem>
         <ListItemAvatar>
           <Avatar className={classes.pink}>
-            <FingerprintIcon />
+            <ReceiptIcon />
           </Avatar>
         </ListItemAvatar>
         <ListItemText
-          primary={'Long Form DID'}
-          secondary={value.substring(0, 32) + '...'}
+          primary={'Transaction ' + transaction.transactionNumber}
         />
-        <ListItemSecondaryAction>
-          <IconButton
-            edge="end"
-            aria-label="link"
-            onClick={() => {
-              console.log('value', value);
-            }}
-          >
-            <LinkIcon />
-          </IconButton>
-        </ListItemSecondaryAction>
       </ListItem>
     </List>
   );

@@ -15,8 +15,14 @@ const create = {
     'eyJ1cGRhdGVfY29tbWl0bWVudCI6IkVpQ2t6LW50TVVmbV90WjRKeTYzYmVwa1ZfWl9CR0xveFhZaG9hbGNKZ0JSUkEiLCJwYXRjaGVzIjpbeyJhY3Rpb24iOiJyZXBsYWNlIiwiZG9jdW1lbnQiOnsicHVibGljS2V5cyI6W3siaWQiOiJrZXkyIiwidHlwZSI6IkVjZHNhU2VjcDI1NmsxVmVyaWZpY2F0aW9uS2V5MjAxOSIsImp3ayI6eyJrdHkiOiJFQyIsImNydiI6InNlY3AyNTZrMSIsIngiOiI3cFE4UGRsUm5OZmlaWU9HdmpLdzlrdFJxN1FoQWZtLWVSck1vVERrd2VjIiwieSI6ImpabEI1QmZKZGt3dGhXM3VIZ1UwVDhZaDJEbDFwdkFNQkZzTUxDeXNIT00ifSwicHVycG9zZSI6WyJhdXRoIiwiZ2VuZXJhbCJdfV0sInNlcnZpY2VFbmRwb2ludHMiOlt7ImlkIjoic2VydmljZUVuZHBvaW50SWQxMjMiLCJ0eXBlIjoic29tZVR5cGUiLCJlbmRwb2ludCI6Imh0dHBzOi8vd3d3LnVybC5jb20ifV19fV19',
 };
 
+const didMethodPrefix = 'elem:ropsten';
+
 export const Create = (props?: Partial<ICreateOperationProps>) => (
   <div style={{ padding: '8px' }}>
-    <CreateOperation operation={create} {...props} />
+    <CreateOperation
+      didMethodPrefix={didMethodPrefix}
+      operation={create}
+      {...props}
+    />
   </div>
 );

@@ -6,3 +6,4 @@ export * from './DIDDocumentList';
 export * from './DIDDocumentPreview';
 export * from './SelectByImage';
 export * from './ExpansionPanelList';
+export * from './TabPanels';
