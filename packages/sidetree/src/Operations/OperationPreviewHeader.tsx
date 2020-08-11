@@ -9,8 +9,10 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 
-import UpdateIcon from '@material-ui/icons/Update';
 import CreateIcon from '@material-ui/icons/Create';
+import UpdateIcon from '@material-ui/icons/Update';
+import HealingIcon from '@material-ui/icons/Healing';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -32,6 +34,12 @@ const operationTypeToIcon = (type: string) => {
   switch (type) {
     case 'create':
       return <CreateIcon />;
+    case 'update':
+      return <UpdateIcon />;
+    case 'recover':
+      return <HealingIcon />;
+    case 'deactivate':
+      return <DeleteIcon />;
     default:
       return <UpdateIcon />;
   }
