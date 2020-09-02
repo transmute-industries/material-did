@@ -31,6 +31,12 @@ npm i @material-did/core
 
 See [./packages](./packages).
 
+### Universal Wallet
+
+This module is currently being developed alongside the univeral wallet experiemental implementation in the W3C CCG.
+
+See https://github.com/w3c-ccg/universal-wallet-interop-spec
+
 ## Release process
 
 ### Unstable releases
@@ -51,7 +57,6 @@ Stable releases are triggered by a dev locally
   - `npm run publish:stable:minor` for a minor version increment
   - `npm run publish:stable:major` for a major version increment
 
-
 ### Example
 
 - Current version is v0.1.0
@@ -61,7 +66,6 @@ Stable releases are triggered by a dev locally
 - Dev runs `npm run publish:stable:patch`. Current version is v0.1.0
 - A PR is made to fix bug D. When it's merged a release is made: v0.1.1-unstable-0
 - etc...
-
 
 ### License
 
