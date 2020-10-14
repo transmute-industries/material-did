@@ -29,7 +29,7 @@ import { GenerateContentsDialog } from './Interface/Generate/GenerateContentsDia
 
 import { getWalletStateContext, download } from './help';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
   },
@@ -139,7 +139,7 @@ export const UniversalWallet: FC<IUniversalWallet> = ({
         id="walletState-file-input"
         multiple
         onChange={(event: any) => {
-          Object.keys(event.target.files).map(index => {
+          Object.keys(event.target.files).map((index) => {
             const file = event.target.files[index];
             const reader = new FileReader();
             reader.onload = (upload: any) => {

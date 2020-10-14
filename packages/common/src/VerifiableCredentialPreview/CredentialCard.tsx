@@ -20,7 +20,7 @@ const excludedCredentialProperties = [
 ];
 const dateKeys = ['issuanceDate', 'expirationDate'];
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
   },
@@ -101,7 +101,7 @@ export const CredentialCard: FC<ICredentialCard> = ({
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Box style={{ padding: '0 16px' }} flexGrow={1}>
-            {Object.keys(verifiableCredential).map(k => {
+            {Object.keys(verifiableCredential).map((k) => {
               if (excludedCredentialProperties.indexOf(k) === -1) {
                 return (
                   <Box
@@ -155,7 +155,7 @@ export const CredentialCard: FC<ICredentialCard> = ({
               xs={12}
               lg={verifiableCredential.credentialSubject.image ? 8 : 12}
             >
-              {Object.keys(subject).map(k => {
+              {Object.keys(subject).map((k) => {
                 if (
                   excludedCredentialSubjectProperties.indexOf(k) === -1 &&
                   typeof subject[k] !== 'object'

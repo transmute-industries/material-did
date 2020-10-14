@@ -15,7 +15,7 @@ import { DigitalLink } from 'digital-link.js';
 
 import { IDL, AIL, KQL } from './data';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
   },
@@ -98,8 +98,8 @@ function GS1DigitalLinkPreview({ digiLink }: any) {
   ].concat(data);
 
   const myKeyQualifiers = Object.keys(digitalLinkAsJson.keyQualifiers)
-    .map(k => {
-      const keyQualifier = KQL.find(i => i.code === k);
+    .map((k) => {
+      const keyQualifier = KQL.find((i) => i.code === k);
       if (keyQualifier) {
         return {
           key: k,
@@ -113,8 +113,8 @@ function GS1DigitalLinkPreview({ digiLink }: any) {
 
   // /!\ Attributes will not work if they are referred to value and not by code
   const myAttributes = Object.keys(digitalLinkAsJson.attributes)
-    .map(k => {
-      const attribute = AIL.find(i => i.code === k);
+    .map((k) => {
+      const attribute = AIL.find((i) => i.code === k);
       if (attribute) {
         return {
           key: k,

@@ -23,7 +23,7 @@ const excludedCredentialSubjectProperties = ['image'];
 
 const dateKeys = ['issuanceDate', 'expirationDate'];
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     backgroundColor: '#f5f5f5',
@@ -188,7 +188,7 @@ export const CredentialCard: FC<ICredentialCardProps> = ({ content }) => {
           )}
 
           <Grid item xs={12} lg={content.credentialSubject.image ? 8 : 12}>
-            {Object.keys(flatCredentialSubject).map(k => {
+            {Object.keys(flatCredentialSubject).map((k) => {
               if (excludedCredentialSubjectProperties.indexOf(k) === -1) {
                 return (
                   <Box

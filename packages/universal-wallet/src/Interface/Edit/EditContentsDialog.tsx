@@ -12,7 +12,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 
 import { JSONEditor } from '@material-did/common';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   appBar: {
     position: 'relative',
   },

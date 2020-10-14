@@ -12,7 +12,7 @@ import Search from '@material-ui/icons/Search';
 
 import { WalletContentsTable } from './WalletContentsTable';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   appBar: {
     position: 'relative',
   },

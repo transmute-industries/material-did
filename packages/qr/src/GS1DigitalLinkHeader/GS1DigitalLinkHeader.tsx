@@ -6,7 +6,7 @@ import Box from '@material-ui/core/Box';
 
 import { QR } from '@bloomprotocol/qr-react';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
   },
