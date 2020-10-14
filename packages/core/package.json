@@ -33,12 +33,6 @@
   "peerDependencies": {
     "react": ">=16"
   },
-  "prettier": {
-    "printWidth": 80,
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "es5"
-  },
   "devDependencies": {
     "@babel/core": "^7.10.4",
     "@storybook/addon-actions": "^5.3.19",
