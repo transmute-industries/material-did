@@ -14,7 +14,7 @@ import UpdateIcon from '@material-ui/icons/Update';
 import HealingIcon from '@material-ui/icons/Healing';
 import DeleteIcon from '@material-ui/icons/Delete';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     backgroundColor: '#f5f5f5',

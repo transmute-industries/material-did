@@ -18,7 +18,7 @@ import { SelectWalletContent } from '../../SelectWalletContent';
 
 import { getSigningKeys, getDefaultCredential } from '../walletHelper';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   appBar: {
     position: 'relative',
   },

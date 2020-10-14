@@ -18,7 +18,7 @@ import { LinkedDataIdentifier, ExpansionPanelList } from '@material-did/common';
 
 import { CredentialsTable } from './CredentialsTable';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     backgroundColor: '#f5f5f5',

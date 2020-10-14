@@ -17,7 +17,7 @@ import { SelectWalletContent } from '../../SelectWalletContent';
 import { TransactionPreviewSendCurrency } from '../../Transactions/SendCurrency';
 import { getCurrencies, getEthereumAddresses } from '../walletHelper';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   appBar: {
     position: 'relative',
   },

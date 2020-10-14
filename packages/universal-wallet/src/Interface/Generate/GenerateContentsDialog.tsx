@@ -16,7 +16,7 @@ import { throttle } from 'lodash-es';
 
 import { UniversalWallet2020 } from '@transmute/universal-wallet';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   appBar: {
     position: 'relative',
   },

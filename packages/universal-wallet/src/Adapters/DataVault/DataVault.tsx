@@ -17,7 +17,7 @@ import Button from '@material-ui/core/Button';
 import EnhancedEncryptionIcon from '@material-ui/icons/EnhancedEncryption';
 import SyncIcon from '@material-ui/icons/Sync';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
   },

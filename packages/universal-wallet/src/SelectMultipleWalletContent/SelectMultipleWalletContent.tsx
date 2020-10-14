@@ -12,7 +12,7 @@ import Select from '@material-ui/core/Select';
 import { LinkedDataIdentifier } from '@material-did/common';
 import { startCase } from 'lodash';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   formControl: {
     // margin: theme.spacing(1),
     width: '100%',

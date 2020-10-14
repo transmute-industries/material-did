@@ -17,7 +17,7 @@ import AccountBalanceWalletIcon from '@material-ui/icons/AccountBalanceWallet';
 import DescriptionIcon from '@material-ui/icons/Description';
 import { LinkedDataIdentifier, ExpansionPanelList } from '@material-did/common';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     backgroundColor: '#f5f5f5',

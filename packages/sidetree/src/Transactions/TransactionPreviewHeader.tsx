@@ -11,7 +11,7 @@ import Avatar from '@material-ui/core/Avatar';
 
 import ReceiptIcon from '@material-ui/icons/Receipt';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   listRoot: {
     flexGrow: 1,
     wordBreak: 'break-all',
