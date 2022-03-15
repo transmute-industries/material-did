@@ -67,7 +67,7 @@
     "@material-ui/lab": "^4.0.0-alpha.56",
     "@transmute/universal-wallet": "0.0.6",
     "flat": "^5.0.0",
-    "lodash-es": "^4.17.15",
+    "lodash-es": "^4.17.21",
     "material-table": "^1.64.0",
     "moment": "^2.27.0",
     "qrcode.react": "^1.0.0"
